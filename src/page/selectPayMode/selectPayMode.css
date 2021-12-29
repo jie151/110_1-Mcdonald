@@ -1,0 +1,50 @@
+.cashimg{
+    max-width:20%;
+    display:block;
+    top: 10%;
+    margin: 0 auto;
+    position:absolute;
+    top:200px;
+    left:300px;
+}
+
+.cardimg{
+    max-width:20%;
+    display:block;
+    top: 10%;
+    margin: 0 auto;
+    position:absolute;
+    top:200px;
+    right:300px;
+}
+
+.payInCashbt{
+    max-width:40%;
+    display:block;
+    top: 50%;
+    margin: 0 auto;
+    position:absolute;
+    top:500px;
+    right:225px;
+}
+
+.payWithCardbt{
+    max-width:40%;
+    display:block;
+    top: 50%;
+    margin: 0 auto;
+    position:absolute;
+    top:500px;
+    left:225px;
+}
+
+.choose{
+    font-size:150%;
+    max-width:40%;
+    display:block;
+    top: 50%;
+    margin: 0 auto;
+    position:absolute;
+    top:50px;
+    right:525px;
+}

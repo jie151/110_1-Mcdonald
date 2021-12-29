@@ -1,0 +1,105 @@
+@font-face {
+    font-family: ArchitectsDaughter-Regular;
+    src: url(./font/ArchitectsDaughter-Regular.ttf);
+}
+
+.Ibody{
+   
+    background-image: url("https://cc.tvbs.com.tw/img/program/upload/2020/11/23/20201123111305-ae481086.jpg");
+    margin: 0;
+    width:100%;
+    padding: 0;
+    height: 100%;
+    
+}
+.Ititle{
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-bottom: 2%;
+    font-family: PatrickHand-Regular;
+    font-size: 54px;
+    letter-spacing:2px;
+    color: white;
+    font-weight: bold;
+    
+    -webkit-text-stroke: 0.2px #5B5B5B;
+   
+   
+}
+.Ibox{
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow: 0px 5px 15px;
+    background: white;
+    
+    min-height: 500px;
+    align-items: center;
+    padding-top: 5%;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 8%;
+    opacity: 95%;    
+  }
+
+
+.Iblock{
+    color: white;
+}
+.Itext{
+    
+    text-align: center;
+    min-height: 800px;
+    max-width: 600px;
+    color: black;
+    padding: 20px;
+    
+}
+.Ipicture{
+    max-height: 3vh;;
+}
+h2.extra {
+    margin: 0 0 25px 0;
+
+    font-size: 36px;
+}
+.foodname {
+    margin: 0 0 25px 0;
+	padding-top: 18px;
+	line-height: 1.5em;
+	font-size: 1.5em;
+	font-weight: normal;
+	color: #bdd003;
+    text-align: justify;
+    text-justify: auto;
+}
+
+.deteail_text{
+    padding-top: 18px;
+}
+.fleft {
+	float: left;
+}
+
+	img.fleft {
+		margin: 5px 45px 45px 0px;
+	}
+.select{
+    margin: 0 0 25px 0;
+}
+.select_button{
+   
+}
+.select_formControl{
+    
+  }
+  .td5{
+    width: 300px;
+}
+.td6{
+    width: 500px;
+}
+.td7{
+    width: 300px;
+}

@@ -1,0 +1,15 @@
+.inputCreditNum{
+    position: relative;
+    top: 100px;
+}
+
+.inputCreditNum_h1{
+    font-weight:bold;
+}
+
+.inputbox {
+    
+    background-color: #3CBC8D;
+    color: white;
+  
+}

@@ -1,0 +1,43 @@
+@font-face {
+    font-family: PatrickHand-Regular;
+    src: url(../mealSetting/font/PatrickHand-Regular.ttf);
+}
+
+.cartBody{
+
+    background-image: url("https://cc.tvbs.com.tw/img/program/upload/2020/11/23/20201123111305-ae481086.jpg");
+    background-size:cover;
+    background-repeat:no-repeat;
+    margin: 0;
+    width:auto;
+    padding: 0;
+    height: 100%;
+}
+.top{
+    background-color: black;
+    min-width: 1000px;
+}
+.mcdonalds_img {
+    z-index: 100;
+    position: absolute;
+    top:0px;
+    left: 0px;
+    width: 7%;
+}
+
+.back{
+    margin: auto;
+    font-family: PatrickHand-Regular;
+    border-radius: 20px;
+    width:60%;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow: 0px 4px 2px;
+    background: white;
+    padding: 5%;
+    opacity: 90%;  
+    display: flex;
+    margin-top: 0%;
+    min-height: 449px;
+}
+

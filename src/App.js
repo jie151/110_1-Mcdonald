@@ -1,25 +1,174 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes,Link, Route } from 'react-router-dom';
+//import {db_config} from "./page/component/firebaseConfig";
+import  {collection, getDocs} from "firebase/firestore";
+import OrderSettingPage from './page/orderSetting/orderSettingPage';
+import GetClassificationData from './page/selectClassification/getClassificationData';
+//import Top12 from './page/selectClassification/top12';
+import {Category, Food, Food_Category} from "./page/selectClassification/data"
+//import {Food_Category} from "./page/selectClassification/data"
+import Cart from './page/cart/Cart';
+
+import { makeStyles } from '@material-ui/core/styles';
+import Foodintro from "./page/mealSetting/foodintro";
+
+import InputCardNum from "./page/selectPayMode/inputCreditCardNum";
+import SelectPayMode from "./page/selectPayMode/selectPayMode";
+import WrongNum from "./page/selectPayMode/wrongNum";
+import PrintOrderList from "./page/selectPayMode/printOrderList";
+
+
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    marginTop: theme.spacing(8),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
 
 function App() {
+
+  const [CookieID, setCookieID] = useState("");
+  const [f_id, setF_id] = useState("");
+  const [category_id, setCategory_id]=useState("");
+  const [language, setLanguage] = useState("中文")
+ 
+  var category_path = "";
+
+  
+/*
+  const [Food, setFood] = useState([]);
+  
+  const [Category, setCategory] = useState([]);
+  const foodCollectionRef = collection(db_config, "Food");
+  const categoryCollectionRef = collection(db_config, "Category");
+  const food_categoryCollectionRef = collection(db_config, "Food_Category");
+  
+  useEffect (() => {
+    const getFood = async() => {
+      const data = await getDocs(foodCollectionRef);
+      setFood(data.docs.map((doc) => ({...doc.data(), id:doc.id}) ));
+    }
+    const getCategory = async() => {
+      const data = await getDocs(categoryCollectionRef);
+      setCategory(data.docs.map((doc) => ({...doc.data(), id:doc.id}) ));
+    }
+    getFood();
+    getCategory();
+  }, []);
+*/
+  function handleLanguage(newValue)
+  {
+    setLanguage(newValue);
+    console.log("app.js => language", newValue);
+  }
+  function handleClick(newValue)
+  {
+    setCookieID(newValue);
+    console.log("app.js => cookie id:", newValue);
+  }
+  function handleClick_order(newValue)
+  {
+    setF_id(newValue);
+    console.log("app.js => f_id:", newValue);
+  }
+  function handleClick_category_id(newValue)
+  {
+    setCategory_id(newValue);
+    console.log("app.js => category_id:", newValue);
+    for(let i = 0; 12> i; i++) {
+      if(newValue === Category[i].category_id) {
+        category_path = Category[i].path;
+        break;
+      }
+    }
+    console.log("app.js => category_path", category_path);
+  }
+  //<Route path="/cart" exact element= {<Cart user_ID={CookieID} />}/>
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <Router>
+        <Routes>
+          <Route path="/" exact element= {<OrderSettingPage onClick={handleClick} handleLanguageClick={handleLanguage}/>}/>
+          <Route path="/cart" exact element= {<Cart user_ID={CookieID} />}/>
+          <Route path="/selectPayMode" exact element= {<SelectPayMode/>}/>
+          <Route path="/inputCardNum" exact element= {<InputCardNum/>}/>
+          <Route path="/wrongNum" exact element= {<WrongNum/>}/>
+          <Route path="/printOrderList" exact element= {<PrintOrderList Name = {CookieID}/>}/>
+
+
+          {Category.map(c => (
+                <Route key={c.category_id} path={`/classification/${c.path}`} exact 
+                  element = {
+                    <GetClassificationData
+                      food_category={Food_Category} 
+                      food = {Food} 
+                      category={Category} 
+                      categoryId={c.category_id} 
+                      categoryName={c.category} 
+                      categoryNameEN={c.category_EN}
+                      name={CookieID} 
+                      onClick_GetfID={handleClick_order}
+                      onClick_GetCategoryId={handleClick_category_id}
+                      language = {language} 
+                      />
+                  } 
+                />
+          ))}
+          {Food.map(f => (
+            <Route path={`/classification/${f.f_id}`} exact
+            element = {
+              < Foodintro
+                category_id = {category_id}
+                f_id = {f_id}
+                user_ID = {CookieID}
+                language = {language}
+              />
+            }
+            />
+          ))}
+          
+        </Routes>
+          <Link to="/">
+            <img alt='mcdonalds logo' className="mcdonalds_img" src={require('./page/mealSetting/images/mcdonalds_logo.jpg')}/>
+          </Link>
+          <Link to="/cart">
+            <img alt='cart' className="cart_img" src={require('./page/mealSetting/images/cart.png')}/>
+          </Link>
+
+
+      </Router>
+  
     </div>
   );
 }
 
 export default App;
+
+////{console.log("onClick cookieid: ", CookieID)}
+/*
+<img alt='mcdonalds logo' className="mcdonalds_img" src="https://www.mcdonalds.com/etc/designs/mcd/tw/zh-tw/_jcr_content/logo/image.img.jpg/1639407613995.jpg"/>
+<Route path="/classification/top" exact 
+            element = {
+              <Top12
+                      food_category={Food_Category} 
+                      food = {Food} 
+                      category={Category} 
+                      name={CookieID}
+                      onClick_GetfID={handleClick_order} />} 
+              />
+*/

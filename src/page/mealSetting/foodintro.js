@@ -1,0 +1,108 @@
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import { withCookies, Cookies } from "react-cookie";
+import Button from '@material-ui/core/Button';
+import './intro.css';
+import './mealsetting.css';
+import SetMealCN from './SingleorMealEN';
+import foodFromDB from './foodFromDB';
+import ShareBoxEN from './shareBoxEN';
+import ShareBoxCN from './shareBoxCN';
+import MealsettingEN from './mealsettingEN';
+import MealsettingCN from './mealsettingCN';
+import SingleEN from './singleEN';
+import SingleCN from './singleCN';
+
+class Foodintro extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            category_id: parseInt(this.props.category_id),
+            f_id: parseInt(this.props.f_id),
+            user_ID: parseInt(this.props.user_ID),
+
+        };
+
+
+
+    }
+
+    componentDidMount() {
+        if (this.props.category_id === undefined) {
+            this.run(this.props.category_id);
+        }
+
+        if (this.props.f_id === undefined) {
+            this.run(this.props.f_id);
+        }
+        if (this.props.user_ID === undefined) {
+            this.run(this.props.user_ID);
+        }
+        if (this.props.language === undefined) {
+            this.run(this.props.language);
+        }
+    }
+    render() {
+        // console.log(this.state.f_id);
+        // if(this.props.language === "中文"){
+
+        // }
+        if (this.props.language === "English") {
+
+            if (this.state.category_id === 1) {
+                return (
+                    <ShareBoxEN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
+                );
+            }
+            else if (this.state.category_id === 2 || this.state.category_id === 3) {
+                return (
+                    <MealsettingEN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
+                );
+            }
+            // else if (this.props.category_id === 4 || this.props.category_id === 5 || this.props.category_id === 6 || this.props.category_id === 7 || this.props.category_id === 11) {
+            else {
+                return (
+                    <SingleEN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
+                )
+            }
+        }
+        else {
+            if (this.state.category_id === 1) {
+                return (
+                    <ShareBoxCN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
+                );
+            }
+            else if (this.state.category_id === 2 || this.state.category_id === 3) {
+                return (
+                    <MealsettingCN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
+                );
+            }
+            // else if (this.props.category_id === 4 || this.props.category_id === 5 || this.props.category_id === 6 || this.props.category_id === 7 || this.props.category_id === 11) {
+            else {
+                return (
+                    <SingleCN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
+                )
+            }
+
+        }
+
+
+
+
+
+
+
+
+    }
+
+}
+export default withCookies(Foodintro);
+
+{/* <label>
+                                單點或套餐:
+                                <select className='select' value={color} onChange={handleChange}>
+                                    {colors.map(item => {
+                                        return (<option key={item.value} value={item.value}>{item.text}</option>);
+                                    })}
+                                </select>
+                            </label> */}
