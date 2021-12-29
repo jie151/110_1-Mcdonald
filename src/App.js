@@ -1,13 +1,13 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes,Link, Route } from 'react-router-dom';
-//import {db_config} from "./page/component/firebaseConfig";
+import {db_config} from "./page/component/firebaseConfig";
 import  {collection, getDocs} from "firebase/firestore";
 import OrderSettingPage from './page/orderSetting/orderSettingPage';
 import GetClassificationData from './page/selectClassification/getClassificationData';
 //import Top12 from './page/selectClassification/top12';
-import {Category, Food, Food_Category} from "./page/selectClassification/data"
-//import {Food_Category} from "./page/selectClassification/data"
+//import {Category, Food, Food_Category} from "./page/selectClassification/data"
+import {Food_Category} from "./page/selectClassification/data"
 import Cart from './page/cart/Cart';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -47,10 +47,7 @@ function App() {
   const [language, setLanguage] = useState("中文")
   const [categoryPath, setCategoryPath] = useState("Signature")
  
-  
 
-  
-/*
   const [Food, setFood] = useState([]);
   
   const [Category, setCategory] = useState([]);
@@ -70,7 +67,7 @@ function App() {
     getFood();
     getCategory();
   }, []);
-*/
+
   function handleLanguage(newValue)
   {
     setLanguage(newValue);
