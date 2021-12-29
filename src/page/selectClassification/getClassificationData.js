@@ -24,7 +24,7 @@ export default function GetClassificationData(props) {
             break;
         }
     }
-
+    console.log("getClassificationData.js => path:",categoryPath);
     console.log("getClassificationData => cookie:", Name);
 
     const numFood_category = Food_Category.length;
@@ -56,6 +56,7 @@ export default function GetClassificationData(props) {
         console.log("getClassifictionData =>  f_id:",e.target.value);
         props.onClick_GetfID(e.target.value);
         props.onClick_GetCategoryId(categoryId);
+        props.onClick_SetPath(categoryPath);
     }
 
     return (

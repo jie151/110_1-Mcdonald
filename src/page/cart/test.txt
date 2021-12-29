@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { instanceOf } from "prop-types";
 import { withCookies, Cookies } from "react-cookie";
 import "./cart.css";
@@ -13,7 +13,7 @@ class Cart extends React.Component {
         this.state = {
             cookieData: {},
             cart: [],
-            newPrice:undefined
+            newTotal: undefined
             //user_ID: 100,   //order_id
         };
         
@@ -28,7 +28,7 @@ class Cart extends React.Component {
     componentDidMount() {
         const { cookies } = this.props;
         //console.log(this.props);
-        
+
         if (this.props.user_ID === undefined) {
             this.run(this.props.user_ID);
         }
@@ -48,7 +48,7 @@ class Cart extends React.Component {
                 await self.setState({
                     cookieData: cookieData,
                     cart: cookieData.order_list,
-                    newPrice:cookieData.total
+                    newTotal: cookieData.total
                 });
                 if (self.state.cart === undefined) {
                     this.run(self.state.cart);
@@ -60,35 +60,6 @@ class Cart extends React.Component {
                 console.log(err);
             }
         }
-
-        //setCookie
-        function setCookie(Name, Value) {
-            var cookieDataTemp = JSON.stringify(cookies.get(this.props.user_ID));
-            var cookieData = JSON.parse(cookieDataTemp);
-            console.log(cookieData);
-
-            //event.preventDefault();
-            var data = {
-                f_name: this.props.food.f_name,
-                f_customize: '正常',
-                //cookieData.total = cookieData.total + parseInt(data.totalPrice);
-            }
-            cookieData.order_list = this.state.cart;
-            cookieData.total = cookieData.total + data.totalPrice;
-            // console.log(cookieData.order_list);
-
-            try {
-                cookies.set(this.props.user_ID, JSON.stringify(cookieData), { path: "/" });
-
-            }
-            catch (err) {
-                console.log(err);
-            }
-            var cookieDataRE = JSON.stringify(cookies.get(this.props.user_ID));
-            var cookieDataresult = JSON.parse(cookieDataRE);
-            console.log(cookieDataresult);
-        }
-
     }
 
     a = () => {
@@ -111,8 +82,8 @@ class Cart extends React.Component {
                     s_customize: "正常",
                     s_price: " this.state.sidePrice",
                     a_name: "無",
-                    totalPrice: 99,
-                    category_id: 3
+                    totalPrice: "99",
+                    category_id: "3"
                 },
                 {
                     f_name: "快樂分享餐",
@@ -121,9 +92,9 @@ class Cart extends React.Component {
                     d_customize1: "去冰",
                     d_customize2: "正常",
                     s_name: "薯條",
-                    totalPrice: 366,
+                    totalPrice: "366",
                     a_name: "無",
-                    category_id: 1
+                    category_id: "1"
                 },
                 {
                     f_name: "勁辣雞腿堡",
@@ -139,8 +110,8 @@ class Cart extends React.Component {
                     s_customize: "糖醋醬",
                     s_price: "this.state.sidePrice",
                     a_name: "無",
-                    totalPrice: 110,
-                    category_id: 3
+                    totalPrice: "110",
+                    category_id: "3"
                 },
                 {
                     f_name: "安格斯黑牛堡",
@@ -156,8 +127,8 @@ class Cart extends React.Component {
                     s_customize: "正常",
                     s_price: "this.state.sidePrice",
                     a_name: "無",
-                    totalPrice: 110,
-                    category_id: 2
+                    totalPrice: "110",
+                    category_id: "2"
                 }
             ],
             total: 446,
@@ -167,89 +138,98 @@ class Cart extends React.Component {
 
     /*delete data one by one*/
     deleteCookieCartData = (event) => {
-        console.log("event.currentTarget.value" + event.currentTarget.value);       
-        console.log("delete one");
+        //const newvalue = event.currentTarget.value;
+        // console.log(event.currentTarget.value); 
+        console.log("delete one!");
         const newvalue = this.state.cart
-        newvalue.filter(item => item.f_name === event.currentTarget.value);
-        console.log(newvalue)
-
-
+        newvalue.find(item => item.f_name !== event.currentTarget.value);
         this.setState({
-            cart: this.state.cart.filter(cart => cart.f_name !== event.currentTarget.value)
-        })
+            cart: this.state.cart.filter(cart => cart.f_name !== newvalue.f_name),
+            newTotal:this.state.newTotal-newvalue.totalPrice,    
+        });
+        console.log(this.state.newTotal)
+        //console.log()(this.props.cart.newvalue)
+        //console.log(JSON.parse(event.target.value))
+        // newvalue.toString = function () {
+        //     return this.totalPrice
+        // };
+        //console.log(newvalue['totalPrice'])
+        // const test = this.state.cart.filter(cart => cart.f_name === event.currentTarget.value)
+        // console.log(test)
+        
+        // this.setState({
+        //     cart: this.state.cart.filter(cart => cart.f_name !== event.currentTarget.value)
+        // })
+
+
     }
 
     /*delete all data*/
     cleanCookieCartData = () => {
         console.log("clean");
  
-        // const items = this.state.cart;
-        // const count = this.state.cart.length - 1;        
+        const items = this.state.cart;
+        const count = this.state.cart.length - 1;        
 
-        // for (var i = count; i >= 0; i--)
-        // {
-        //     items.splice(i, 1);
-        //     const element = document.getElementById(i);
-        //     element.remove("CartItem");
-        // }
-        // console.log(items);
+        for (var i = count; i >= 0; i--)
+        {
+            items.splice(i, 1);
+            const element = document.getElementById(i);
+            element.remove("CartItem");
+        }
+        console.log(items);
 
-        // this.state.cart = items;
-        // this.setState.newPrice = 0;
-        this.setState({
-            cart: [],
-            newPrice: 0
-        })
+        this.state.cart = items;
+
+
         //setCookie(this.state.user_ID, cart);
     }
 
     setOrderList = () => {
         console.log("set order and jump to pay page");
+
         const { cookies } = this.props;
+        var data = undefined;
+        var cookieDataTemp = JSON.stringify(cookies.get(`${this.props.user_ID}`));
+        var cookieData = JSON.parse(cookieDataTemp);
+        console.log(cookieData);
     
-    var cookieDataTemp = JSON.stringify(cookies.get(`${this.props.user_ID}`));
-    var cookieData = JSON.parse(cookieDataTemp);
-    console.log(cookieData);
-
-
-    cookieData.order_list = this.state.cart;
-    cookieData.total = this.state.newPrice;
-
-
-    try {
-        cookies.set(this.props.user_ID, JSON.stringify(cookieData), { path: "/" });
-
-    }
-    catch (err) {
-        console.log(err);
-    }
-
-    var cookieDataRE = JSON.stringify(cookies.get(this.props.user_ID));
-    var cookieDataresult = JSON.parse(cookieDataRE);
-    console.log(cookieDataresult);
-        // const newvalue = this.state.cart
-        // newvalue.find(item => item.f_name === event.currentTarget.value);
-        // console.log(newvalue)
+    
+        cookieData.order_list = this.state.cart;
+        //cookieData.total = cookieData.total - this.state.newPrice;
+    
+    
+        try {
+            cookies.set(this.props.user_ID, JSON.stringify(cookieData), { path: "/" });
+    
+        }
+        catch (err) {
+            console.log(err);
+        }
+    
+        var cookieDataRE = JSON.stringify(cookies.get(this.props.user_ID));
+        var cookieDataresult = JSON.parse(cookieDataRE);
+        console.log(cookieDataresult);
     }
 
     Display(data, index) {
         /*delete data one by one*/
-        const { cookies } = this.props;
         this.deleteCookieCartData = (event) => {
-            console.log("event.currentTarget.value" + event.currentTarget.value);       
-            console.log("delete one");
-            const newvalue = this.state.cart
-            const newcart=newvalue.find(item => item.f_name === event.currentTarget.value);
-            
-
-            this.setState({
-                cart: this.state.cart.filter(cart => cart.f_name !== event.currentTarget.value),
-                newPrice:this.state.newPrice-newcart.totalPrice
-            })
-            //console.log(this.state.newPrice );
+        //const newvalue = event.currentTarget.value;
+        // console.log(event.currentTarget.value);  
+            console.log("delete one!");
+        //console.log(this.props.cart.newvalue)
+        //console.log(JSON.parse(event.target.value))
+        // newvalue.toString = function () {
+        //     return this.totalPrice
+        // };
+        //console.log(newvalue['totalPrice'])
+            // this.setState({
+            //     cart: this.state.cart.filter(cart => cart.f_name !== event.currentTarget.value)
+            // })
         }
         //console.log(data.category_id);
-        if (data.category_id === 1) {
+        if (data.category_id === "1") {
             //console.log(data.f_name);
             return (
                 <tr className='cartItem' id={index}>
@@ -287,13 +267,13 @@ class Cart extends React.Component {
         }
         else {
             return (
-                
                     <tr className='cartItem' id={index}>                                       
                         <tr>
                             <th scope="row"key="{data0}">{index +1}</th>
                             <td width="250" key="{data1}">{data.f_name}</td>
+                            {console.log(data)}
                             <td key="{data2}">{data.f_customize.sauce}  {data.f_customize.lectture}</td>
-                            <Button variant="outlined" color="error" key={data.f_id} value={data.f_name} onClick={this.deleteCookieCartData} removeitem={this.deleteCookieCartData}>
+                            <Button variant="outlined" color="error" key={data.f_id} value={/*{f_name: data.f_name, price: data.totalPrice}*/data.f_name} onClick={this.deleteCookieCartData} removeitem={this.deleteCookieCartData}>
                             X
                             </ Button> 
                         </tr>
@@ -325,7 +305,8 @@ class Cart extends React.Component {
     render() {
         console.log(this.props.user_ID);
         console.log("yyy",this.state.cart);
-        console.log(this.state.cookieData.language);  
+        console.log(this.state.cookieData.language); 
+        console.log(this.state.newTotal);
 
         if (this.state.cookieData.language === "中文") {
             return (
@@ -335,7 +316,7 @@ class Cart extends React.Component {
                     </div>
                     <div className="back">
                         <h1>購物車</h1>
-                        {/* {<Button onClick={this.a}>A</Button>} */}
+                        {<Button onClick={this.a}>A</Button>}
                         <div>
                             <div>
                                 {(this.state.cart).map((data, index) => (
@@ -343,12 +324,11 @@ class Cart extends React.Component {
                                 ))}
                             </div>
                         </div>
-                        <div className="text-right" align="right">總價 :{this.state.newPrice} 元</div>
+                    {/* <div className="text-right" align="right">總價 :{this.state.cookieData.total} 元</div> */}
                     <Button className='clean' variant="contained" color="error" onClick={this.cleanCookieCartData} >清空購物車</Button>
                     <Link to="/selectPayMode">
-                        <Button className='pay' variant="contained" color="primary" onClick={this.setOrderList}>確認訂單</Button>{' '}
+                    <Button className='pay' variant="contained" color="primary" onClick={this.setOrderList}>確認訂單</Button>{' '}
                     </Link>
-                    
                     </div>
                 </div >
             );
@@ -357,11 +337,10 @@ class Cart extends React.Component {
             return (
                 <div className="cartBody">
                     <div className='top'>
-                    <img alt='mcdonalds logo' className="mcdonalds_img" src={require('../mealSetting/images/mcdonalds_logo.jpg')}/>
+                        <img alt='mcdonalds logo' className="mcdonalds_img" src={require('../mealSetting/images/mcdonalds_logo.jpg')}/>
                     </div>
                     <div className="back">
                         <h1>My Order</h1>
-                        {/* {<Button onClick={this.a}>A</Button>} */}
                         <div>
                             <div>
                                 {(this.state.cart).map((data, index) => (
@@ -369,12 +348,11 @@ class Cart extends React.Component {
                                 ))}
                             </div>
                         </div>
-                        <div className="text-right" align="right">total :${this.state.newPrice}</div>
+                    {/* <div className="text-right" align="right">總價 :{this.state.cookieData.total} 元</div> */}
                     <Button className='clean' variant="contained" color="error" onClick={this.cleanCookieCartData} >Remove All</Button>
                     <Link to="/selectPayMode">
                         <Button className='pay' variant="contained" color="primary" onClick={this.setOrderList}>Confirm Order</Button>{' '}
                     </Link>
-                    
                     </div>
                 </div >
             );
@@ -382,9 +360,13 @@ class Cart extends React.Component {
     }
     
     
+
+    
+    
+    
 }
 
 
-//
+
 
 export default withCookies(Cart);

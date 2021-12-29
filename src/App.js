@@ -45,8 +45,9 @@ function App() {
   const [f_id, setF_id] = useState("");
   const [category_id, setCategory_id]=useState("");
   const [language, setLanguage] = useState("中文")
+  const [categoryPath, setCategoryPath] = useState("Signature")
  
-  var category_path = "";
+  
 
   
 /*
@@ -89,13 +90,10 @@ function App() {
   {
     setCategory_id(newValue);
     console.log("app.js => category_id:", newValue);
-    for(let i = 0; 12> i; i++) {
-      if(newValue === Category[i].category_id) {
-        category_path = Category[i].path;
-        break;
-      }
-    }
-    console.log("app.js => category_path", category_path);
+  }
+  function handleClick_SetPath (newValue) {
+    setCategoryPath(newValue);
+    console.log("app.js => category_path", newValue);
   }
   //<Route path="/cart" exact element= {<Cart user_ID={CookieID} />}/>
   return (
@@ -124,6 +122,7 @@ function App() {
                       name={CookieID} 
                       onClick_GetfID={handleClick_order}
                       onClick_GetCategoryId={handleClick_category_id}
+                      onClick_SetPath={ handleClick_SetPath}
                       language = {language} 
                       />
                   } 
@@ -137,6 +136,7 @@ function App() {
                 f_id = {f_id}
                 user_ID = {CookieID}
                 language = {language}
+                categoryPath = {categoryPath}
               />
             }
             />

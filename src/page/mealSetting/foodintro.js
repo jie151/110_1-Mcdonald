@@ -12,6 +12,8 @@ import MealsettingEN from './mealsettingEN';
 import MealsettingCN from './mealsettingCN';
 import SingleEN from './singleEN';
 import SingleCN from './singleCN';
+import {Link} from "react-router-dom"
+
 
 class Foodintro extends React.Component {
     constructor(props) {
@@ -20,11 +22,8 @@ class Foodintro extends React.Component {
             category_id: parseInt(this.props.category_id),
             f_id: parseInt(this.props.f_id),
             user_ID: parseInt(this.props.user_ID),
-
+            categoryPath : this.props.categoryPath,
         };
-
-
-
     }
 
     componentDidMount() {
@@ -51,58 +50,85 @@ class Foodintro extends React.Component {
 
             if (this.state.category_id === 1) {
                 return (
-                    <ShareBoxEN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
+                    <div>
+                        <Link to={`/classification/${this.state.categoryPath}`}>
+                            <Button >Back to menu</Button>
+                        </Link>
+                        
+                        <ShareBoxEN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
+                        
+                    </div>
+                    
                 );
             }
             else if (this.state.category_id === 2 || this.state.category_id === 3) {
                 return (
-                    <MealsettingEN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
+                    <div>
+                         <Link to={`/classification/${this.state.categoryPath}`}>
+                            <Button >Back to menu</Button>
+                        </Link>
+                        <MealsettingEN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
+                       
+                    </div>
+                    
                 );
             }
             // else if (this.props.category_id === 4 || this.props.category_id === 5 || this.props.category_id === 6 || this.props.category_id === 7 || this.props.category_id === 11) {
             else {
                 return (
-                    <SingleEN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
+                    <div>
+                        <Link to={`/classification/${this.state.categoryPath}`}>
+                            <Button >Back to menu</Button>
+                        </Link>
+                        <SingleEN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
+                        
+                    </div>
+                    
                 )
             }
         }
         else {
             if (this.state.category_id === 1) {
                 return (
-                    <ShareBoxCN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
+                    <div>
+                        <Link to={`/classification/${this.state.categoryPath}`}>
+                            <Button >回到菜單</Button>
+                        </Link>
+                        
+                        <ShareBoxCN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
+                        
+                    </div>
+                    
                 );
             }
             else if (this.state.category_id === 2 || this.state.category_id === 3) {
                 return (
-                    <MealsettingCN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
+                    <div>
+                        <Link to={`/classification/${this.state.categoryPath}`}>
+                            <Button >回到菜單</Button>
+                        </Link>
+                        <MealsettingCN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
+                        
+                    </div>
+                    
                 );
             }
             // else if (this.props.category_id === 4 || this.props.category_id === 5 || this.props.category_id === 6 || this.props.category_id === 7 || this.props.category_id === 11) {
             else {
                 return (
-                    <SingleCN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
+                    <div>
+                        <Link to={`/classification/${this.state.categoryPath}`}>
+                            <Button >回到菜單</Button>
+                        </Link>
+                        <SingleCN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
+                        
+                    </div>
+                    
                 )
             }
-
         }
-
-
-
-
-
-
-
-
     }
 
 }
 export default withCookies(Foodintro);
 
-{/* <label>
-                                單點或套餐:
-                                <select className='select' value={color} onChange={handleChange}>
-                                    {colors.map(item => {
-                                        return (<option key={item.value} value={item.value}>{item.text}</option>);
-                                    })}
-                                </select>
-                            </label> */}
