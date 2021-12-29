@@ -1,5 +1,6 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: PatrickHand-Regular;
+  src: url(./page/mealSetting/font/PatrickHand-Regular.ttf);
 }
 
 .mcdonalds_img {

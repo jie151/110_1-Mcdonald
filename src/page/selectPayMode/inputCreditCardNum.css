@@ -1,15 +1,17 @@
 .inputCreditNum{
-    position: relative;
+   
     top: 100px;
+    text-align: center;
+    align-items: center;
+
 }
 
 .inputCreditNum_h1{
     font-weight:bold;
 }
-
-.inputbox {
-    
-    background-color: #3CBC8D;
-    color: white;
-  
+.inputCreditNum input {
+    text-align: center;
+    left: 40%;
+    margin-right: 15px;
+    padding: 8px 10px;
 }

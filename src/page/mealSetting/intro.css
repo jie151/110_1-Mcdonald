@@ -2,6 +2,13 @@
     font-family: ArchitectsDaughter-Regular;
     src: url(./font/ArchitectsDaughter-Regular.ttf);
 }
+.foodIntro {
+    align-items: center;
+    text-align: center;
+}
+.button{
+    margin:10px;
+}
 
 .Ibody{
    

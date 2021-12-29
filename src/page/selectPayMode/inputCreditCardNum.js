@@ -71,8 +71,9 @@ function InputCardNum() {
 
   return (
     <div className='inputCreditNum' >
+      <br/> <br/> <br/>
       <center><h2 className='inputCreditNum_h1' >請輸入信用卡卡號: </h2><br/></center>
-      <center><h2>Please enter the credit card number: </h2></center><br/>
+      <center><h2>Please enter the credit card number: </h2></center><br/> <br/>
       <input className='inputbox' value={creditCard} onChange={handleChange} maxLength="16"/>
       
       <Link to={(checkans)?"/printOrderList":"/wrongNum"}>

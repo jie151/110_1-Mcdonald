@@ -102,12 +102,11 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" exact element= {<OrderSettingPage onClick={handleClick} handleLanguageClick={handleLanguage}/>}/>
-          <Route path="/cart" exact element= {<Cart user_ID={CookieID} />}/>
+          <Route path="/cart" exact element= {<Cart user_ID={CookieID} categoryPath = {categoryPath} />}/>
           <Route path="/selectPayMode" exact element= {<SelectPayMode/>}/>
           <Route path="/inputCardNum" exact element= {<InputCardNum/>}/>
           <Route path="/wrongNum" exact element= {<WrongNum/>}/>
           <Route path="/printOrderList" exact element= {<PrintOrderList Name = {CookieID}/>}/>
-
 
           {Category.map(c => (
                 <Route key={c.category_id} path={`/classification/${c.path}`} exact 

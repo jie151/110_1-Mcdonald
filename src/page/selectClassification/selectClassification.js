@@ -26,8 +26,8 @@ export default function SelectClassification(props)
     }
     
     return(
-        <div>
-        <div>
+        <div className="select_menu_button">
+        <div >
             <Button
                 id="demo-positioned-button"
                 className="menu-button"

@@ -60,10 +60,12 @@ export default function GetClassificationData(props) {
     }
 
     return (
-        <div>
+        <div className="select_menu_button">
             <SelectClassification name={Name} category={Category} language={language}/>
 
-            <h2>{chinese? categoryName:categoryNameEN }</h2>
+            <br/><br/>
+            <h2 className="getClassificationData_h2">{chinese? categoryName:categoryNameEN }</h2>
+            <br/>
 
             <div className="card_all">
                 {meals.map(meal => {

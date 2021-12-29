@@ -4,7 +4,7 @@ import {Cookies} from "react-cookie";
 import "./printOrderList.css"
 import Option from './cookieData';
 import Button from '@material-ui/core/Button';
-
+import db from '../component/connect';
 var da = {
     order_id: "ID",
     place: 'place',
@@ -103,23 +103,22 @@ export default function PrintOrderList(props){
         console.log("cookieBol", cookieBol);
         
     }
-/*
-    return(
-        <center><button className="finishbt" onClick={hangleClick}>完成</button></center>
-    );
-*/
+    function handleFinalClick () 
+    {
+        db.collection("OrderTotal").doc(`${Name}`).set({cookieData});
+        console.log("print");
+    }
     return(
         <>
+        <br/>
+        <center><h2>用餐地點 (dining place) : {cookieData.place}</h2></center><br/>
+        <center><h2>點餐明細 : </h2></center>
+        {(cookieBol)? (<Option cookieData={cookieData}/>) :("cookie error")}
         
-        <center><h1>訂單完成!</h1></center>
-        <center><h2>用餐地點(dining place): {cookieData.place}</h2></center>
-        <center><h2>點餐明細: </h2></center>
-        {(cookieBol)? (<Option cookieData={cookieData}/>):("cookie error")}
-        
-        <center><h2>總金額(totalPrice): ${cookieData.total}</h2></center>
+        <center><h2>總金額 (totalPrice) : ${cookieData.total}</h2></center>
         <h2>&nbsp;</h2>
         <Link to="/">
-        <center><Button type="submit" variant="contained" color="primary" className="finishbt">完成</Button></center>
+        <center><Button type="submit" variant="contained" color="primary" className="finishbt" onClick={handleFinalClick}>完成</Button></center>
         </Link>
         <h2>&nbsp;</h2>
         </>

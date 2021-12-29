@@ -1,6 +1,10 @@
+.select_menu_button {
+    align-items: center;
+    text-align: center;
+}
 nav{
     display: flex;
-    
+   
     justify-content: space-around;
     align-items: center;
     min-height: 10vh;
@@ -9,6 +13,7 @@ nav{
 }
 
 .menu-button{
+    
     width: 10%;
     height: 70px;
     position: relative;
@@ -61,3 +66,4 @@ nav{
    border-radius: 15px;
    
 }
+

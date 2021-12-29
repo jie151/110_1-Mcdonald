@@ -13,7 +13,8 @@ class Cart extends React.Component {
         this.state = {
             cookieData: {},
             cart: [],
-            newPrice:undefined
+            newPrice:undefined,
+            categoryPath : this.props.categoryPath
             //user_ID: 100,   //order_id
         };
         
@@ -257,7 +258,7 @@ class Cart extends React.Component {
                         <th >{index+1}</th>
                         <td width="250" >{data.f_name}</td>
                         <td>{data.totalPrice} 元</td>
-                        <Button variant="outlined" color="error" key={data.f_id} value={data.f_name} onClick={this.deleteCookieCartData} removeitem={this.deleteCookieCartData}>
+                        <Button variant="outlined" color="secondary" key={data.f_id} value={data.f_name} onClick={this.deleteCookieCartData} removeitem={this.deleteCookieCartData}>
                             X
                         </ Button>   
                     </tr>
@@ -293,7 +294,7 @@ class Cart extends React.Component {
                             <th scope="row"key="{data0}">{index +1}</th>
                             <td width="250" key="{data1}">{data.f_name}</td>
                             <td key="{data2}">{data.f_customize.sauce}  {data.f_customize.lectture}</td>
-                            <Button variant="outlined" color="error" key={data.f_id} value={data.f_name} onClick={this.deleteCookieCartData} removeitem={this.deleteCookieCartData}>
+                            <Button variant="outlined" color="secondary" key={data.f_id} value={data.f_name} onClick={this.deleteCookieCartData} removeitem={this.deleteCookieCartData}>
                             X
                             </ Button> 
                         </tr>
@@ -333,8 +334,12 @@ class Cart extends React.Component {
                     <div className='top'>
                     <img alt='mcdonalds logo' className="mcdonalds_img" src={require('../mealSetting/images/mcdonalds_logo.jpg')}/>
                     </div>
+                    
                     <div className="back">
-                        <h1>購物車</h1>
+                        <Link to={`/classification/${this.state.categoryPath}`}>
+                            <Button variant='outlined' color="primary" >回到菜單</Button>
+                        </Link>
+                        <h3>購物車</h3>
                         {/* {<Button onClick={this.a}>A</Button>} */}
                         <div>
                             <div>
@@ -344,7 +349,7 @@ class Cart extends React.Component {
                             </div>
                         </div>
                         <div className="text-right" align="right">總價 :{this.state.newPrice} 元</div>
-                    <Button className='clean' variant="contained" color="error" onClick={this.cleanCookieCartData} >清空購物車</Button>
+                    <Button className='clean' variant="contained" color="secondary" onClick={this.cleanCookieCartData} >清空購物車</Button>
                     <Link to="/selectPayMode">
                         <Button className='pay' variant="contained" color="primary" onClick={this.setOrderList}>確認訂單</Button>{' '}
                     </Link>
@@ -359,8 +364,13 @@ class Cart extends React.Component {
                     <div className='top'>
                     <img alt='mcdonalds logo' className="mcdonalds_img" src={require('../mealSetting/images/mcdonalds_logo.jpg')}/>
                     </div>
+                    
                     <div className="back">
-                        <h1>My Order</h1>
+                    <Link to={`/classification/${this.state.categoryPath}`}>
+                            <Button >Back to menu</Button>
+                        </Link>
+                        <h3>My Order</h3>
+
                         {/* {<Button onClick={this.a}>A</Button>} */}
                         <div>
                             <div>

@@ -21,21 +21,20 @@
 .payInCashbt{
     max-width:40%;
     display:block;
-    top: 50%;
     margin: 0 auto;
     position:absolute;
-    top:500px;
-    right:225px;
+    top:550px;
+    
+    left: 29%;
 }
 
 .payWithCardbt{
     max-width:40%;
     display:block;
-    top: 50%;
     margin: 0 auto;
     position:absolute;
-    top:500px;
-    left:225px;
+    top:550px;
+    left: 60%;
 }
 
 .choose{

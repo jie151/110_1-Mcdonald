@@ -50,9 +50,9 @@ class Foodintro extends React.Component {
 
             if (this.state.category_id === 1) {
                 return (
-                    <div>
+                    <div className='foodIntro'>
                         <Link to={`/classification/${this.state.categoryPath}`}>
-                            <Button >Back to menu</Button>
+                            <Button className='button_back_to_menu' >Back to menu</Button>
                         </Link>
                         
                         <ShareBoxEN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
@@ -63,9 +63,9 @@ class Foodintro extends React.Component {
             }
             else if (this.state.category_id === 2 || this.state.category_id === 3) {
                 return (
-                    <div>
+                    <div className='foodIntro'>
                          <Link to={`/classification/${this.state.categoryPath}`}>
-                            <Button >Back to menu</Button>
+                            <Button className='button_back_to_menu' >Back to menu</Button>
                         </Link>
                         <MealsettingEN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
                        
@@ -76,9 +76,9 @@ class Foodintro extends React.Component {
             // else if (this.props.category_id === 4 || this.props.category_id === 5 || this.props.category_id === 6 || this.props.category_id === 7 || this.props.category_id === 11) {
             else {
                 return (
-                    <div>
+                    <div className='foodIntro'>
                         <Link to={`/classification/${this.state.categoryPath}`}>
-                            <Button >Back to menu</Button>
+                            <Button className='button_back_to_menu' >Back to menu</Button>
                         </Link>
                         <SingleEN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
                         
@@ -90,9 +90,9 @@ class Foodintro extends React.Component {
         else {
             if (this.state.category_id === 1) {
                 return (
-                    <div>
+                    <div className='foodIntro'>
                         <Link to={`/classification/${this.state.categoryPath}`}>
-                            <Button >回到菜單</Button>
+                            <Button className='button_back_to_menu' >回到菜單</Button>
                         </Link>
                         
                         <ShareBoxCN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
@@ -103,9 +103,9 @@ class Foodintro extends React.Component {
             }
             else if (this.state.category_id === 2 || this.state.category_id === 3) {
                 return (
-                    <div>
+                    <div className='foodIntro'>
                         <Link to={`/classification/${this.state.categoryPath}`}>
-                            <Button >回到菜單</Button>
+                            <Button className='button_back_to_menu'>回到菜單</Button>
                         </Link>
                         <MealsettingCN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
                         
@@ -116,9 +116,9 @@ class Foodintro extends React.Component {
             // else if (this.props.category_id === 4 || this.props.category_id === 5 || this.props.category_id === 6 || this.props.category_id === 7 || this.props.category_id === 11) {
             else {
                 return (
-                    <div>
+                    <div className='foodIntro'>
                         <Link to={`/classification/${this.state.categoryPath}`}>
-                            <Button >回到菜單</Button>
+                            <Button className='button_back_to_menu' >回到菜單</Button>
                         </Link>
                         <SingleCN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
                         
