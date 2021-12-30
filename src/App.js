@@ -19,26 +19,6 @@ import WrongNum from "./page/selectPayMode/wrongNum";
 import PrintOrderList from "./page/selectPayMode/printOrderList";
 
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
-
 function App() {
 
   const [CookieID, setCookieID] = useState("");
@@ -46,10 +26,8 @@ function App() {
   const [category_id, setCategory_id]=useState("");
   const [language, setLanguage] = useState("中文")
   const [categoryPath, setCategoryPath] = useState("Signature")
- 
 
   const [Food, setFood] = useState([]);
-  
   const [Category, setCategory] = useState([]);
   const foodCollectionRef = collection(db_config, "Food");
   const categoryCollectionRef = collection(db_config, "Category");

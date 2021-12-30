@@ -173,7 +173,7 @@ class SetMealEN extends React.Component {
         }
         else {
             data = {
-                f_name: this.props.food.f_name,
+                f_name: this.props.food.f_name_EN,
                 f_customize: { sauce: this.state.sauceCustomize, lectture: this.state.lettuceCustomize, pickles: this.state.picklesCustomize },
                 d_name: 'none',
                 d_customize: 'none',

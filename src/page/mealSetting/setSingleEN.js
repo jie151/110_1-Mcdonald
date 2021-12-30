@@ -100,7 +100,7 @@ class SetSingleEN extends React.Component {
         cookieData.order_list.push(data);
         cookieData.total = cookieData.total + parseInt(data.totalPrice);
 
-        // console.log(cookieData.order_list);
+        console.log("setSingleEN",cookieData.order_list);
 
         try {
             cookies.set(this.props.user_ID, JSON.stringify(cookieData), { path: "/" });
@@ -114,7 +114,7 @@ class SetSingleEN extends React.Component {
         var cookieDataresult = JSON.parse(cookieDataRE);
         console.log(cookieDataresult);
     };
-
+    
     // this.state.drinkPrice + this.state.sidePrice + this.state.food.price
 
     render() {
