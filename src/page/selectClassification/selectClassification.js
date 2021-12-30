@@ -27,6 +27,9 @@ export default function SelectClassification(props)
     
     return(
         <div className="select_menu_button">
+            <Link to="/cart">
+                <img alt='cart' className="cart_img" src={require('../mealSetting/images/cart.png')}/>
+            </Link>
         <div >
             <Button
                 id="demo-positioned-button"
@@ -60,6 +63,7 @@ export default function SelectClassification(props)
                     if (language === "中文")
                     {
                         return (
+                            
                             <Link key={c.category_id} to={`/classification/${c.path}` }>
                                 <MenuItem className="classification_Button" key={c.category_id}><Button >{c.category}</Button></MenuItem> 
                             </Link>

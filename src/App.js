@@ -78,9 +78,9 @@ function App() {
         <Routes>
           <Route path="/" exact element= {<OrderSettingPage onClick={handleClick} handleLanguageClick={handleLanguage}/>}/>
           <Route path="/cart" exact element= {<Cart user_ID={CookieID} categoryPath = {categoryPath} />}/>
-          <Route path="/selectPayMode" exact element= {<SelectPayMode/>}/>
-          <Route path="/inputCardNum" exact element= {<InputCardNum/>}/>
-          <Route path="/wrongNum" exact element= {<WrongNum/>}/>
+          <Route path="/selectPayMode" exact element= {<SelectPayMode language={language}/>}/>
+          <Route path="/inputCardNum" exact element= {<InputCardNum language={language}/>}/>
+          <Route path="/wrongNum" exact element= {<WrongNum language={language}/>}/>
           <Route path="/printOrderList" exact element= {<PrintOrderList Name = {CookieID}/>}/>
 
           {Category.map(c => (
@@ -120,9 +120,7 @@ function App() {
           <Link to="/">
             <img alt='mcdonalds logo' className="mcdonalds_img" src={require('./page/mealSetting/images/mcdonalds_logo.jpg')}/>
           </Link>
-          <Link to="/cart">
-            <img alt='cart' className="cart_img" src={require('./page/mealSetting/images/cart.png')}/>
-          </Link>
+          
 
 
       </Router>

@@ -184,19 +184,6 @@ class Cart extends React.Component {
     cleanCookieCartData = () => {
         console.log("clean");
  
-        // const items = this.state.cart;
-        // const count = this.state.cart.length - 1;        
-
-        // for (var i = count; i >= 0; i--)
-        // {
-        //     items.splice(i, 1);
-        //     const element = document.getElementById(i);
-        //     element.remove("CartItem");
-        // }
-        // console.log(items);
-
-        // this.state.cart = items;
-        // this.setState.newPrice = 0;
         this.setState({
             cart: [],
             newPrice: 0
@@ -208,26 +195,26 @@ class Cart extends React.Component {
         console.log("set order and jump to pay page");
         const { cookies } = this.props;
     
-    var cookieDataTemp = JSON.stringify(cookies.get(`${this.props.user_ID}`));
-    var cookieData = JSON.parse(cookieDataTemp);
-    console.log(cookieData);
+        var cookieDataTemp = JSON.stringify(cookies.get(`${this.props.user_ID}`));
+        var cookieData = JSON.parse(cookieDataTemp);
+        console.log(cookieData);
 
 
-    cookieData.order_list = this.state.cart;
-    cookieData.total = this.state.newPrice;
+        cookieData.order_list = this.state.cart;
+        cookieData.total = this.state.newPrice;
 
 
-    try {
-        cookies.set(this.props.user_ID, JSON.stringify(cookieData), { path: "/" });
+        try {
+            cookies.set(this.props.user_ID, JSON.stringify(cookieData), { path: "/" });
 
-    }
-    catch (err) {
-        console.log(err);
-    }
+        }
+        catch (err) {
+            console.log(err);
+        }
 
-    var cookieDataRE = JSON.stringify(cookies.get(this.props.user_ID));
-    var cookieDataresult = JSON.parse(cookieDataRE);
-    console.log(cookieDataresult);
+        var cookieDataRE = JSON.stringify(cookies.get(this.props.user_ID));
+        var cookieDataresult = JSON.parse(cookieDataRE);
+        console.log(cookieDataresult);
         // const newvalue = this.state.cart
         // newvalue.find(item => item.f_name === event.currentTarget.value);
         // console.log(newvalue)
@@ -412,9 +399,9 @@ class Cart extends React.Component {
                     
                     <div className="back">
                         <Link to={`/classification/${this.state.categoryPath}`}>
-                            <Button variant='outlined' color="primary" >回到菜單</Button>
-                        </Link><br/><br/>
-                        <h3>購物車</h3><br/><br/>
+                            <Button onClick={this.setOrderList} variant='outlined' color="primary" >回到菜單</Button>
+                        </Link>
+                        <h3>購物車</h3>
                         {/* {<Button onClick={this.a}>A</Button>} */}
                         <div>
                             <div>
@@ -424,7 +411,7 @@ class Cart extends React.Component {
                             </div>
                         </div>
                         <div className="text-right" align="right">總價 :{this.state.newPrice} 元</div>
-                    <Button className='clean' variant="contained" color="secondary" onClick={this.cleanCookieCartData} >清空購物車</Button><br/><br/>
+                    <Button className='clean'  variant="contained" color="secondary" onClick={this.cleanCookieCartData} >清空購物車</Button>
                     <Link to="/selectPayMode">
                         <Button className='pay' variant="contained" color="primary" onClick={this.setOrderList}>確認訂單</Button>{' '}
                     </Link>
@@ -442,9 +429,9 @@ class Cart extends React.Component {
                     
                     <div className="back">
                     <Link to={`/classification/${this.state.categoryPath}`}>
-                            <Button >Back to menu</Button>
-                        </Link><br/><br/>
-                        <h3>My Order</h3><br/><br/>
+                            <Button onClick={this.setOrderList} >Back to menu</Button>
+                        </Link><br/>
+                        <h3>My Order</h3><br/>
 
                         {/* {<Button onClick={this.a}>A</Button>} */}
                         <div>
@@ -455,7 +442,7 @@ class Cart extends React.Component {
                             </div>
                         </div>
                         <div className="text-right" align="right">total :${this.state.newPrice}</div>
-                    <Button className='clean' variant="contained" color="error" onClick={this.cleanCookieCartData} >Remove All</Button><br/><br/>
+                    <Button className='clean'  variant="contained" color="error" onClick={this.cleanCookieCartData} >Remove All</Button>
                     <Link to="/selectPayMode">
                         <Button className='pay' variant="contained" color="primary" onClick={this.setOrderList}>Confirm Order</Button>{' '}
                     </Link>

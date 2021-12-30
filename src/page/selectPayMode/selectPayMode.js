@@ -4,13 +4,21 @@ import IconButton from '@material-ui/core/IconButton';
 import { Link } from "react-router-dom";
 import Button from '@material-ui/core/Button';
 
-export default function SelectPayMode(){
+export default function SelectPayMode({language}){
+    var chinese =true;
+    if (language === "English")
+    {
+        chinese = false;
+    }
+    
     return(
         <>
+        <Link to="/cart">
+                <img alt='cart' className="cart_img" src={require('../mealSetting/images/cart.png')}/>
+        </Link>
         <div className="choose">
-            <center><h3>請選擇付款方式</h3></center>
+            <center><h3>{(chinese) ?("請選擇付款方式"):("Please choose a payment method")}</h3></center>
             <h2>&nbsp;</h2>
-            <center><h3>Please choose a payment method</h3></center>
         </div>
         
         <div>
@@ -21,11 +29,11 @@ export default function SelectPayMode(){
         </div>
 
         <Link to="/printOrderList">
-            <Button type="submit" variant="contained" color="primary" className="payInCashbt">櫃台結帳</Button>
+            <Button type="submit" variant="contained" color="primary" className="payInCashbt">{(chinese) ?("櫃台結帳"):("Pay in Cash")}</Button>
         </Link>
         
         <Link to="/inputCardNum">
-            <Button type="submit" variant="contained" color="primary" className="payWithCardbt">信用卡付款</Button>
+            <Button type="submit" variant="contained" color="primary" className="payWithCardbt">{(chinese) ?("信用卡付款"):("Pay with CreditCard")}</Button>
         </Link>
     </>
     );
