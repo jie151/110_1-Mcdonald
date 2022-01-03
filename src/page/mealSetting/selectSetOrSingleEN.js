@@ -6,7 +6,7 @@ import './intro.css';
 import './mealsetting.css';
 import SetMealEN from './SingleorMealEN';
 import foodFromDB from './foodFromDB';
-class MealSettingEN extends React.Component {
+class SelectSetOrSingleEN extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -92,7 +92,7 @@ class MealSettingEN extends React.Component {
                             </div>
                             <h2 classsName="link">more about us</h2>
                             <div classsName="clear"></div>
-                            <div>< SetMealEN message={this.state.singleormeal} category_id={this.props.category_id} food={this.state.food} user_ID={this.props.user_ID}  /></div>
+                            <div>< SetMealEN message={this.state.singleormeal} category_id={this.props.category_id} food={this.state.food} user_ID={this.props.user_ID} /></div>
 
                         </div>
                     </div>
@@ -104,7 +104,7 @@ class MealSettingEN extends React.Component {
     }
 
 }
-export default withCookies(MealSettingEN);
+export default withCookies(SelectSetOrSingleEN);
 
 {/* <label>
                                 單點或套餐:

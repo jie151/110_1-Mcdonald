@@ -99,9 +99,9 @@ class SetMealCN extends React.Component {
 
         var self = this;
 
-        setdata(self);
+        getMealData(self);
 
-        async function setdata(self) {
+        async function getMealData(self) {
             try {
                 console.log("set start");
                 await self.setState({ user_ID: self.props.user_ID });

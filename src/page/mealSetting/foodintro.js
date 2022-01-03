@@ -8,11 +8,11 @@ import SetMealCN from './SingleorMealEN';
 import foodFromDB from './foodFromDB';
 import ShareBoxEN from './shareBoxEN';
 import ShareBoxCN from './shareBoxCN';
-import MealsettingEN from './mealsettingEN';
-import MealsettingCN from './mealsettingCN';
+import SelectSetOrSingleEN from './selectSetOrSingleEN';
+import SelectSetOrSingleCN from './selectSetOrSingleCN';
 import SingleEN from './singleEN';
 import SingleCN from './singleCN';
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 
 class Foodintro extends React.Component {
@@ -22,7 +22,7 @@ class Foodintro extends React.Component {
             category_id: parseInt(this.props.category_id),
             f_id: parseInt(this.props.f_id),
             user_ID: parseInt(this.props.user_ID),
-            categoryPath : this.props.categoryPath,
+            categoryPath: this.props.categoryPath,
         };
     }
 
@@ -52,31 +52,31 @@ class Foodintro extends React.Component {
                 return (
                     <div className='foodIntro'>
                         <Link to="/cart">
-                            <img alt='cart' className="cart_img" src={require('./images/cart.png')}/>
+                            <img alt='cart' className="cart_img" src={require('./images/cart.png')} />
                         </Link>
                         <Link to={`/classification/${this.state.categoryPath}`}>
-                            <Button className='button_back_to_menu'  variant='outlined'>Back to menu</Button>
+                            <Button className='button_back_to_menu' variant='outlined'>Back to menu</Button>
                         </Link>
-                        
+
                         <ShareBoxEN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
-                        
+
                     </div>
-                    
+
                 );
             }
             else if (this.state.category_id === 2 || this.state.category_id === 3) {
                 return (
                     <div className='foodIntro'>
                         <Link to="/cart">
-                            <img alt='cart' className="cart_img" src={require('./images/cart.png')}/>
+                            <img alt='cart' className="cart_img" src={require('./images/cart.png')} />
                         </Link>
-                         <Link to={`/classification/${this.state.categoryPath}`}>
+                        <Link to={`/classification/${this.state.categoryPath}`}>
                             <Button className='button_back_to_menu' variant='outlined'>Back to menu</Button>
                         </Link>
-                        <MealsettingEN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
-                       
+                        <SelectSetOrSingleEN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
+
                     </div>
-                    
+
                 );
             }
             // else if (this.props.category_id === 4 || this.props.category_id === 5 || this.props.category_id === 6 || this.props.category_id === 7 || this.props.category_id === 11) {
@@ -84,15 +84,15 @@ class Foodintro extends React.Component {
                 return (
                     <div className='foodIntro'>
                         <Link to="/cart">
-                            <img alt='cart' className="cart_img" src={require('./images/cart.png')}/>
+                            <img alt='cart' className="cart_img" src={require('./images/cart.png')} />
                         </Link>
                         <Link to={`/classification/${this.state.categoryPath}`}>
-                            <Button className='button_back_to_menu'  variant='outlined' >Back to menu</Button>
+                            <Button className='button_back_to_menu' variant='outlined' >Back to menu</Button>
                         </Link>
                         <SingleEN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
-                        
+
                     </div>
-                    
+
                 )
             }
         }
@@ -101,31 +101,31 @@ class Foodintro extends React.Component {
                 return (
                     <div className='foodIntro'>
                         <Link to="/cart">
-                            <img alt='cart' className="cart_img" src={require('./images/cart.png')}/>
+                            <img alt='cart' className="cart_img" src={require('./images/cart.png')} />
                         </Link>
                         <Link to={`/classification/${this.state.categoryPath}`}>
                             <Button className='button_back_to_menu' variant='outlined' >回到菜單</Button>
                         </Link>
-                        
+
                         <ShareBoxCN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
-                        
+
                     </div>
-                    
+
                 );
             }
             else if (this.state.category_id === 2 || this.state.category_id === 3) {
                 return (
                     <div className='foodIntro'>
                         <Link to="/cart">
-                            <img alt='cart' className="cart_img" src={require('./images/cart.png')}/>
+                            <img alt='cart' className="cart_img" src={require('./images/cart.png')} />
                         </Link>
                         <Link to={`/classification/${this.state.categoryPath}`}>
-                            <Button className='button_back_to_menu'  variant='outlined'>回到菜單</Button>
+                            <Button className='button_back_to_menu' variant='outlined'>回到菜單</Button>
                         </Link>
-                        <MealsettingCN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
-                        
+                        <SelectSetOrSingleCN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
+
                     </div>
-                    
+
                 );
             }
             // else if (this.props.category_id === 4 || this.props.category_id === 5 || this.props.category_id === 6 || this.props.category_id === 7 || this.props.category_id === 11) {
@@ -133,15 +133,15 @@ class Foodintro extends React.Component {
                 return (
                     <div className='foodIntro'>
                         <Link to="/cart">
-                            <img alt='cart' className="cart_img" src={require('./images/cart.png')}/>
+                            <img alt='cart' className="cart_img" src={require('./images/cart.png')} />
                         </Link>
                         <Link to={`/classification/${this.state.categoryPath}`}>
                             <Button className='button_back_to_menu' variant='outlined'>回到菜單</Button>
                         </Link>
                         <SingleCN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
-                        
+
                     </div>
-                    
+
                 )
             }
         }

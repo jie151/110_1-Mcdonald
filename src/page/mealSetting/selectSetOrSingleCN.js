@@ -1,11 +1,11 @@
 import React from 'react';
-import { withCookies} from "react-cookie";
+import { withCookies } from "react-cookie";
 import Button from '@material-ui/core/Button';
 import './intro.css';
 import './mealsetting.css';
 import SetMealCN from './SingleorMealCN';
 import foodFromDB from './foodFromDB';
-class MealSettingCN extends React.Component {
+class SelectSetOrSingleCN extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -103,4 +103,4 @@ class MealSettingCN extends React.Component {
     }
 
 }
-export default withCookies(MealSettingCN);
+export default withCookies(SelectSetOrSingleCN);

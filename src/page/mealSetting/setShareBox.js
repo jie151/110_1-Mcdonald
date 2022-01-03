@@ -96,9 +96,9 @@ class SetShareBox extends React.Component {
 
         var self = this;
 
-        setdata(self);
+        getMealData(self);
 
-        async function setdata(self) {
+        async function getMealData(self) {
             try {
                 console.log("setShareBox.js => set start");
 
@@ -191,7 +191,7 @@ class SetShareBox extends React.Component {
             s_name: this.state.side,
             totalPrice: event.currentTarget.value,
             a_name: this.state.add,
-            category_id:this.props.category_id
+            category_id: this.props.category_id
         }
 
 
