@@ -64,11 +64,11 @@ class Foodintro extends React.Component {
             else if (this.state.category_id === 2 || this.state.category_id === 3) {
                 return (
                     <div className='foodIntro'>
-                         <Link to={`/classification/${this.state.categoryPath}`}>
+                        <Link to={`/classification/${this.state.categoryPath}`}>
                             <Button className='button_back_to_menu' >Back to menu</Button>
                         </Link>
                         <MealsettingEN f_id={this.state.f_id} category_id={this.state.category_id} user_ID={this.state.user_ID} />
-                       
+                    
                     </div>
                     
                 );

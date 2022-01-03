@@ -4,7 +4,7 @@ import "./inputCreditCardNum"
 import Button from '@material-ui/core/Button';
 
 
-export default function WrongNum(){
+export default function getCreditCardTF(){
     return(
         <div className ="inputCreditNum" >
         

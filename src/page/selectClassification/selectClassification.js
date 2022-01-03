@@ -9,7 +9,7 @@ export default function SelectClassification(props)
 {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
-     const handleMenuClick = (event) => {
+    const handleMenuClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
     const handleMenuClose = () => {
@@ -78,9 +78,9 @@ export default function SelectClassification(props)
 }
 
 /*
- <Link to="/classification/top">
+<Link to="/classification/top">
                     <button className="classification_Button">Top 12</button>
-               </Link>
+            </Link>
 <nav>
                 {Category.map(c => {
                     if (language === "中文")

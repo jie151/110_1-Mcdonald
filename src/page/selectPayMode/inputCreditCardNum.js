@@ -21,12 +21,12 @@ function InputCardNum() {
   function handleClick() {
     console.log("creditcard", creditCard);
     separate = creditCard.split("").map(Number);
-    check();
+    testCreditCardNum();
     console.log("array", separate);
     console.log("handleClick 2", checkans)
   }
 
-  function check(){
+  function testCreditCardNum(){
     console.log("before", separate);
     for(let i=0;i<16;i++){
       if(i%2===0){
@@ -65,7 +65,7 @@ function InputCardNum() {
   function handleChange(e) {
     setcreditCard(e.target.value);
     separate = e.target.value.split("").map(Number);
-    check()
+    testCreditCardNum()
     console.log("handleChange", checkans)
   }
 

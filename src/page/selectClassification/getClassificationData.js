@@ -38,7 +38,7 @@ export default function GetClassificationData(props) {
     if (language === "English") {
         chinese = false;
     }
-   
+
     for(let i = 0; numFood_category > i; i++) {
         if (Food_Category[i].category_id === categoryId) {
             //console.log("i", Food_category[i].f_id);

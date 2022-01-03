@@ -5,10 +5,6 @@ mark, rp, rt, ruby, summary, time { display: inline }
 
 /* ==================== Getting the new tags to behave END ======================= */
 
-
-
-
-
 /* ========================= Global properties START ============================= */
 
 body {
@@ -43,7 +39,7 @@ div {
 
 a {
 	outline: none;
-	color: #bdd003;
+	color: #090a01;
 }
 
 	a:hover {
@@ -443,7 +439,7 @@ h2 {
 	font-size: 1.5em;
 	font-weight: 400;
 	text-decoration: none;
-	color: #bdd003;
+	color: #0c0e00;
 }
 
 	.link:hover {
@@ -625,11 +621,11 @@ h2 {
 		padding: 0 0 0 1px;
 		line-height: 1.5em;
 		font-size: 1em;
-		color: #bdd003;
+		color: #111302;
 	}
 	
 		.list-1 dd a {
-			color: #bdd003;
+			color: #0f1101;
 		}
 
 .list-2 {
@@ -641,11 +637,11 @@ h2 {
 }
 
 	.list-2 dt {
-		color: #bdd003;
+		color: #0e0f03;
 	}
 	
 		.list-2 dt a {
-			color: #bdd003;
+			color: #070707;
 		}
 		
 	.list-2 dd {
@@ -675,11 +671,11 @@ h2 {
 			line-height: 1.5em;
 			font-size: 1em;
 			font-weight: normal;
-			color: #bdd003;
+			color: #050505;
 		}
 		
 			.list-3 li strong a {
-				color: #bdd003;
+				color: #0c0c0c;
 			}
 			
 		.list-3 li p {
@@ -703,7 +699,7 @@ h2 {
 	
 		.list-4 li a {
 			text-decoration: none;
-			color: #bdd003;
+			color: #181817;
 		}
 		
 		.list-4 li a:hover {
@@ -712,7 +708,7 @@ h2 {
 
 .links {
 	padding: 1px 0 0 0;
-	color: #bdd003;
+	color: #161615;
 }
 
 .table-blog {
@@ -781,7 +777,7 @@ h2 {
 			overflow: hidden;
 			line-height: 74px;
 			text-align: center;
-			color: #bdd003;
+			color: #181816;
 		}
 		
 		.table-blog tr td em {
@@ -803,7 +799,7 @@ h2 {
 			line-height: 74px;
 			text-align: center;
 			font-style: normal;
-			color: #bdd003;
+			color: #111110;
 		}
 		
 		.table-blog tr td div {
@@ -1086,7 +1082,7 @@ footer p {
 }
 
 	footer p a {
-		color: #bdd003;
+		color: #131312;
 	}
 
 footer .block-1 {

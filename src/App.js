@@ -15,7 +15,7 @@ import Foodintro from "./page/mealSetting/foodintro";
 
 import InputCardNum from "./page/selectPayMode/inputCreditCardNum";
 import SelectPayMode from "./page/selectPayMode/selectPayMode";
-import WrongNum from "./page/selectPayMode/wrongNum";
+import getCreditCardTF from "./page/selectPayMode/wrongNum";
 import PrintOrderList from "./page/selectPayMode/printOrderList";
 
 
@@ -80,7 +80,7 @@ function App() {
           <Route path="/cart" exact element= {<Cart user_ID={CookieID} categoryPath = {categoryPath} />}/>
           <Route path="/selectPayMode" exact element= {<SelectPayMode/>}/>
           <Route path="/inputCardNum" exact element= {<InputCardNum/>}/>
-          <Route path="/wrongNum" exact element= {<WrongNum/>}/>
+          <Route path="/wrongNum" exact element= {<getCreditCardTF/>}/>
           <Route path="/printOrderList" exact element= {<PrintOrderList Name = {CookieID}/>}/>
 
           {Category.map(c => (
