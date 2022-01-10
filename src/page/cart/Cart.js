@@ -247,7 +247,7 @@ class Cart extends React.Component {
                             <th >{index+1}</th>
                             <td width="250" >{data.f_name}</td>
                             <td>$ {data.totalPrice}</td>
-                            <Button variant="outlined" color="secondary" key={data.f_id} value={data.number} onClick={this.deleteCookieCartData} removeitem={this.deleteCookieCartData}>
+                            <Button className='removeX_Cart' variant="outlined" color="secondary" key={data.f_id} value={data.number} onClick={this.deleteCookieCartData} removeitem={this.deleteCookieCartData}>
                                 X
                             </ Button>   
                         </tr>
@@ -282,7 +282,7 @@ class Cart extends React.Component {
                             <th >{index+1}</th>
                             <td width="250" >{data.f_name}</td>
                             <td>$ {data.totalPrice}</td>
-                            <Button variant="outlined" color="secondary" key={data.f_id} value={data.number} onClick={this.deleteCookieCartData} removeitem={this.deleteCookieCartData}>
+                            <Button className='removeX_Cart' variant="outlined" color="secondary" key={data.f_id} value={data.number} onClick={this.deleteCookieCartData} removeitem={this.deleteCookieCartData}>
                                 X
                             </ Button>   
                         </tr>
@@ -321,9 +321,9 @@ class Cart extends React.Component {
                             <tr>
                                 <th scope="row"key="{data0}">{index +1}</th>
                                 <td width="250" key="{data1}">{data.f_name}</td>
-                                <td key="{data2}">{data.f_customize.sauce}  {data.f_customize.lectture}</td>
+                                <td key="{data2}">{data.f_customize.sauce}  {data.f_customize.lettuce}</td>
                                 <td>$ {data.totalPrice}</td>
-                                <Button variant="outlined" color="secondary" key={data.f_id} value={data.number} onClick={this.deleteCookieCartData} removeitem={this.deleteCookieCartData}>
+                                <Button className='removeX_Cart' variant="outlined" color="secondary" key={data.f_id} value={data.number} onClick={this.deleteCookieCartData} removeitem={this.deleteCookieCartData}>
                                 X
                                 </ Button> 
                             </tr>
@@ -337,9 +337,9 @@ class Cart extends React.Component {
                             <tr>
                                 <th scope="row"key="{data0}">{index +1}</th>
                                 <td width="250" key="{data1}">{data.f_name}</td>
-                                <td key="{data2}">{data.f_customize.sauce}  {data.f_customize.lectture}</td>
+                                <td key="{data2}">{data.f_customize.sauce}  {data.f_customize.lettuce}</td>
                                 <td>$ {data.totalPrice}</td>
-                                <Button variant="outlined" color="secondary" key={data.f_id} value={data.number} onClick={this.deleteCookieCartData} removeitem={this.deleteCookieCartData}>
+                                <Button className='removeX_Cart' variant="outlined" color="secondary" key={data.f_id} value={data.number} onClick={this.deleteCookieCartData} removeitem={this.deleteCookieCartData}>
                                 X
                                 </ Button> 
                             </tr>
@@ -375,9 +375,9 @@ class Cart extends React.Component {
                             <tr>
                                 <th scope="row"key="{data0}">{index +1}</th>
                                 <td width="250" key="{data1}">{data.f_name}</td>
-                                <td key="{data2}">{data.f_customize.sauce}  {data.f_customize.lectture}</td>
+                                <td key="{data2}">{data.f_customize.sauce}  {data.f_customize.lettuce}</td>
                                 <td>$ {data.totalPrice}</td>
-                                <Button variant="outlined" color="secondary" key={data.f_id} value={data.f_name} onClick={this.deleteCookieCartData} removeitem={this.deleteCookieCartData}>
+                                <Button className='removeX_Cart' variant="outlined" color="secondary" key={data.f_id} value={data.f_name} onClick={this.deleteCookieCartData} removeitem={this.deleteCookieCartData}>
                                 X
                                 </ Button> 
                             </tr>
@@ -391,9 +391,9 @@ class Cart extends React.Component {
                             <tr>
                                 <th scope="row"key="{data0}">{index +1}</th>
                                 <td width="250" key="{data1}">{data.f_name}</td>
-                                <td key="{data2}">{data.f_customize.sauce}  {data.f_customize.lectture}</td>
+                                <td key="{data2}">{data.f_customize.sauce}  {data.f_customize.lettuce}</td>
                                 <td>$ {data.totalPrice}</td>
-                                <Button variant="outlined" color="secondary" key={data.f_id} value={data.f_name} onClick={this.deleteCookieCartData} removeitem={this.deleteCookieCartData}>
+                                <Button className='removeX_Cart' variant="outlined" color="secondary" key={data.f_id} value={data.f_name} onClick={this.deleteCookieCartData} removeitem={this.deleteCookieCartData}>
                                 X
                                 </ Button> 
                             </tr>
