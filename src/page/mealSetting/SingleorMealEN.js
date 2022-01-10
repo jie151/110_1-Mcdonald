@@ -168,7 +168,7 @@ class SetMealEN extends React.Component {
             data = {
                 number: ordernumber,
                 f_name: this.props.food.f_name_EN,
-                f_customize: { sauce: this.state.sauceCustomize, lectture: this.state.lettuceCustomize },
+                f_customize: { sauce: this.state.sauceCustomize, lettuce: this.state.lettuceCustomize },
                 d_name: this.state.drink,
                 d_customize: this.state.drinkCustomize,
                 d_price: this.state.drinkPrice,
@@ -185,7 +185,7 @@ class SetMealEN extends React.Component {
             data = {
                 number: ordernumber,
                 f_name: this.props.food.f_name_EN,
-                f_customize: { sauce: this.state.sauceCustomize, lectture: this.state.lettuceCustomize, pickles: this.state.picklesCustomize },
+                f_customize: { sauce: this.state.sauceCustomize, lettuce: this.state.lettuceCustomize, pickles: this.state.picklesCustomize },
                 totalPrice: event.currentTarget.value,
                 category_id: this.props.category_id,
                 set: 1
