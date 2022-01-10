@@ -119,7 +119,7 @@ export default function PrintOrderList(props){
         <br/>
         <center><h2>{(chinese)?("用餐地點"):("dining place")} : {cookieData.place}</h2></center><br/>
         <center><h2>{(chinese)?("點餐明細"):("Order List")} : </h2></center>
-        {(cookieBol)? (<Option cookieData={cookieData}/>) :("cookie error")}
+        {(cookieBol)? (<Option cookieData={cookieData} chinese={chinese}/>) :("cookie error")}
         
         <center><h2>{(chinese)?("總金額"):("totalPrice")} : ${cookieData.total}</h2></center>
         <h2>&nbsp;</h2>
