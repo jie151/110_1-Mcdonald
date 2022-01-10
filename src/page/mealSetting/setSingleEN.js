@@ -88,10 +88,20 @@ class SetSingleEN extends React.Component {
         var cookieDataTemp = JSON.stringify(cookies.get(this.props.user_ID));
         var cookieData = JSON.parse(cookieDataTemp);
         console.log(cookieData);
+        const orderLenth = cookieData.order_list.length;
+        var ordernumber;
+        try {
+            ordernumber = cookieData.order_list[orderLenth - 1].number + 1;
+        }
+        catch (err) {
+            ordernumber = 0;
+        }
+
 
 
         event.preventDefault();
         var data = {
+            number: ordernumber,
             f_name: this.props.food.f_name_EN,
             f_customize: '正常',
             totalPrice: event.currentTarget.value,
@@ -100,7 +110,7 @@ class SetSingleEN extends React.Component {
         cookieData.order_list.push(data);
         cookieData.total = cookieData.total + parseInt(data.totalPrice);
 
-        console.log("setSingleEN",cookieData.order_list);
+        console.log("setSingleEN", cookieData.order_list);
 
         try {
             cookies.set(this.props.user_ID, JSON.stringify(cookieData), { path: "/" });
@@ -114,7 +124,7 @@ class SetSingleEN extends React.Component {
         var cookieDataresult = JSON.parse(cookieDataRE);
         console.log(cookieDataresult);
     };
-    
+
     // this.state.drinkPrice + this.state.sidePrice + this.state.food.price
 
     render() {

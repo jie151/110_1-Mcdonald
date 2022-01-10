@@ -189,9 +189,18 @@ class SetShareBoxEN extends React.Component {
         var cookieDataTemp = JSON.stringify(cookies.get(`${this.props.user_ID}`));
         var cookieData = JSON.parse(cookieDataTemp);
         console.log(cookieData);
+        const orderLenth = cookieData.order_list.length;
+        var ordernumber;
+        try {
+            ordernumber = cookieData.order_list[orderLenth - 1].number + 1;
+        }
+        catch (err) {
+            ordernumber = 0;
+        }
 
 
         data = {
+            number: ordernumber,
             f_name: this.props.food.f_name_EN,
             d_name1: this.state.drink1,
             d_name2: this.state.drink2,

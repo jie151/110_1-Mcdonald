@@ -88,10 +88,19 @@ class SetSingleCN extends React.Component {
         var cookieDataTemp = JSON.stringify(cookies.get(this.props.user_ID));
         var cookieData = JSON.parse(cookieDataTemp);
         console.log(cookieData);
+        const orderLenth = cookieData.order_list.length;
+        var ordernumber;
+        try {
+            ordernumber = cookieData.order_list[orderLenth - 1].number + 1;
+        }
+        catch (err) {
+            ordernumber = 0;
+        }
 
 
         event.preventDefault();
         var data = {
+            number: ordernumber,
             f_name: this.props.food.f_name,
             f_customize: '正常',
             totalPrice: event.currentTarget.value,

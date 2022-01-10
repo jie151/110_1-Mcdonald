@@ -154,10 +154,19 @@ class SetMealEN extends React.Component {
         var cookieDataTemp = JSON.stringify(cookies.get(`${this.props.user_ID}`));
         var cookieData = JSON.parse(cookieDataTemp);
         console.log(cookieData);
+        const orderLenth = cookieData.order_list.length;
+        var ordernumber;
+        try {
+            ordernumber = cookieData.order_list[orderLenth - 1].number + 1;
+        }
+        catch (err) {
+            ordernumber = 0;
+        }
 
 
         if (this.props.message === '2') {
             data = {
+                number: ordernumber,
                 f_name: this.props.food.f_name_EN,
                 f_customize: { sauce: this.state.sauceCustomize, lectture: this.state.lettuceCustomize },
                 d_name: this.state.drink,
@@ -168,22 +177,18 @@ class SetMealEN extends React.Component {
                 s_price: this.state.sidePrice,
                 totalPrice: event.currentTarget.value,
                 a_name: this.state.add,
-                category_id: this.props.category_id
+                category_id: this.props.category_id,
+                set: 2
             }
         }
         else {
             data = {
+                number: ordernumber,
                 f_name: this.props.food.f_name_EN,
                 f_customize: { sauce: this.state.sauceCustomize, lectture: this.state.lettuceCustomize, pickles: this.state.picklesCustomize },
-                d_name: 'none',
-                d_customize: 'none',
-                d_price: 'none',
-                s_name: 'none',
-                s_customize: 'none',
-                s_price: 'none',
                 totalPrice: event.currentTarget.value,
-                a_name: 'none',
-                category_id: this.props.category_id
+                category_id: this.props.category_id,
+                set: 1
             }
         }
         cookieData.order_list.push(data);
@@ -341,6 +346,7 @@ class SetMealEN extends React.Component {
 
     render() {
         console.log(this.state);
+
         var totalprice;
         //meal
         if (this.props.message === '2') {

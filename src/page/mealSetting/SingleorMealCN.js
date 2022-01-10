@@ -159,12 +159,21 @@ class SetMealCN extends React.Component {
         var cookieDataTemp = JSON.stringify(cookies.get(`${this.props.user_ID}`));
         var cookieData = JSON.parse(cookieDataTemp);
         console.log(cookieData);
+        const orderLenth = cookieData.order_list.length;
+        var ordernumber;
+        try {
+            ordernumber = cookieData.order_list[orderLenth - 1].number + 1;
+        }
+        catch (err) {
+            ordernumber = 0;
+        }
 
 
         if (this.props.message === '2') {
             data = {
+                number: ordernumber,
                 f_name: this.props.food.f_name,
-                f_customize: { sauce: this.state.sauceCustomize, lectture: this.state.lettuceCustomize },
+                f_customize: { sauce: this.state.sauceCustomize, lettuce: this.state.lettuceCustomize },
                 d_name: this.state.drink,
                 d_customize: this.state.drinkCustomize,
                 d_price: this.state.drinkPrice,
@@ -173,22 +182,18 @@ class SetMealCN extends React.Component {
                 s_price: this.state.sidePrice,
                 totalPrice: event.currentTarget.value,
                 a_name: this.state.add,
-                category_id: this.props.category_id
+                category_id: this.props.category_id,
+                set: 2
             }
         }
         else {
             data = {
+                number: ordernumber,
                 f_name: this.props.food.f_name,
-                f_customize: { sauce: this.state.sauceCustomize, lectture: this.state.lettuceCustomize, pickles: this.state.picklesCustomize },
-                d_name: 'none',
-                d_customize: 'none',
-                d_price: 'none',
-                s_name: 'none',
-                s_customize: 'none',
-                s_price: 'none',
+                f_customize: { sauce: this.state.sauceCustomize, lettuce: this.state.lettuceCustomize, pickles: this.state.picklesCustomize },
                 totalPrice: event.currentTarget.value,
-                a_name: 'none',
-                category_id: this.props.category_id
+                category_id: this.props.category_id,
+                set: 1
             }
         }
         cookieData.order_list.push(data);
