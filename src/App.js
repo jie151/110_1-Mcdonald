@@ -81,7 +81,7 @@ function App() {
           <Route path="/selectPayMode" exact element= {<SelectPayMode language={language}/>}/>
           <Route path="/inputCardNum" exact element= {<InputCardNum language={language}/>}/>
           <Route path="/wrongNum" exact element= {<WrongNum language={language}/>}/>
-          <Route path="/printOrderList" exact element= {<PrintOrderList Name = {CookieID}/>}/>
+          <Route path="/printOrderList" exact element= {<PrintOrderList Name = {CookieID} language={language}/>}/>
 
           {Category.map(c => (
                 <Route key={c.category_id} path={`/classification/${c.path}`} exact 

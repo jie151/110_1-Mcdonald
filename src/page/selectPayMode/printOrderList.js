@@ -88,6 +88,12 @@ function ReadCookie(Name) {
 export default function PrintOrderList(props){
 
     const Name = props.Name;
+    const language = props.language;
+    var chinese =true;
+    if (language === "English")
+    {
+        chinese = false;
+    }
     console.log("printOrderList.js CookieID => ",Name);
     var cookieData = ReadCookie(Name);
     console.log("data", cookieData);
@@ -111,14 +117,14 @@ export default function PrintOrderList(props){
     return(
         <>
         <br/>
-        <center><h2>用餐地點 (dining place) : {cookieData.place}</h2></center><br/>
-        <center><h2>點餐明細 : </h2></center>
+        <center><h2>{(chinese)?("用餐地點"):("dining place")} : {cookieData.place}</h2></center><br/>
+        <center><h2>{(chinese)?("點餐明細"):("Order List")} : </h2></center>
         {(cookieBol)? (<Option cookieData={cookieData}/>) :("cookie error")}
         
-        <center><h2>總金額 (totalPrice) : ${cookieData.total}</h2></center>
+        <center><h2>{(chinese)?("總金額"):("totalPrice")} : ${cookieData.total}</h2></center>
         <h2>&nbsp;</h2>
         <Link to="/">
-        <center><Button type="submit" variant="contained" color="primary" className="finishbt" onClick={handleFinalClick}>完成</Button></center>
+        <center><Button type="submit" variant="contained" color="primary" className="finishbt" onClick={handleFinalClick}>{(chinese)?("完成"):("Finish")}</Button></center>
         </Link>
         <h2>&nbsp;</h2>
         </>

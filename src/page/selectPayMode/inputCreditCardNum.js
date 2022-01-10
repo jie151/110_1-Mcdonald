@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 
 var separate = new Array();
 
-function InputCardNum() {
+function InputCardNum({language}) {
 
   const [creditCard, setcreditCard] = useState("");
   const [checkans, setCheckans] = useState("");
@@ -17,6 +17,12 @@ function InputCardNum() {
       setCheckans(true);
     }
   }, [sum])
+
+  var chinese =true;
+    if (language === "English")
+    {
+        chinese = false;
+    }
 
   function handleClick() {
     console.log("creditcard", creditCard);
@@ -72,12 +78,11 @@ function InputCardNum() {
   return (
     <div className='inputCreditNum' >
       <br/> <br/> <br/>
-      <center><h2 className='inputCreditNum_h1' >請輸入信用卡卡號: </h2><br/></center>
-      <center><h2>Please enter the credit card number: </h2></center><br/> <br/>
+      <center><h2 className='inputCreditNum_h1' >{(chinese)?("請輸入信用卡卡號: "):("Please enter the credit card number: ")} </h2><br/></center>
       <input className='inputbox' value={creditCard} onChange={handleChange} maxLength="16"/>
       
       <Link to={(checkans)?"/printOrderList":"/wrongNum"}>
-        <Button onClick={handleClick} variant='outlined'  className="finishbt">確認</Button>
+        <Button onClick={handleClick} variant='outlined'  className="finishbt">{(chinese)?("確認"):("confirm")}</Button>
       </Link>
       
       
