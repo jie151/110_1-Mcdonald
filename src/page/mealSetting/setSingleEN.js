@@ -55,6 +55,7 @@ class SetSingleEN extends React.Component {
     };
 
     handleAddtoCart = event => {
+        alert('Add to cart successfully!!');
         const { cookies } = this.props;
         // var da = {
         //     order_id: "ID",

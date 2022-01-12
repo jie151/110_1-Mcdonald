@@ -55,6 +55,7 @@ class SetSingleCN extends React.Component {
     };
 
     handleAddtoCart = event => {
+        alert('成功加入購物車!!');
         const { cookies } = this.props;
         // var da = {
         //     order_id: "ID",
