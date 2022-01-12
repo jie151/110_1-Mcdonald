@@ -148,6 +148,7 @@ class SetMealEN extends React.Component {
     };
 
     handleAddtoCart = event => {
+        alert('Add to cart successfully!!');
         const { cookies } = this.props;
         var data = undefined;
         event.preventDefault();

@@ -3,7 +3,7 @@ import { instanceOf } from "prop-types";
 import { withCookies, Cookies } from "react-cookie";
 import "./cart.css";
 import Button from '@material-ui/core/Button';
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 
 class Cart extends React.Component {
@@ -13,15 +13,15 @@ class Cart extends React.Component {
         this.state = {
             cookieData: {},
             cart: [],
-            newPrice:undefined,
-            categoryPath : this.props.categoryPath
+            newPrice: undefined,
+            categoryPath: this.props.categoryPath
             //user_ID: 100,   //order_id
         };
-        
+
         this.deleteCookieCartData = this.deleteCookieCartData.bind(this);
         this.cleanCookieCartData = this.cleanCookieCartData.bind(this);
     }
-    
+
     static propTypes = {
         cookies: instanceOf(Cookies).isRequired,
     };
@@ -29,7 +29,7 @@ class Cart extends React.Component {
     componentDidMount() {
         const { cookies } = this.props;
         //console.log(this.props);
-        
+
         if (this.props.user_ID === undefined) {
             this.run(this.props.user_ID);
         }
@@ -49,12 +49,12 @@ class Cart extends React.Component {
                 await self.setState({
                     cookieData: cookieData,
                     cart: cookieData.order_list,
-                    newPrice:cookieData.total
+                    newPrice: cookieData.total
                 });
                 if (self.state.cart === undefined) {
                     this.run(self.state.cart);
                 }
-                console.log("readCookie",cookieData);
+                console.log("readCookie", cookieData);
                 return cookieData;
             }
             catch (err) {
@@ -99,7 +99,7 @@ class Cart extends React.Component {
             place: 'place',
             order_list: [
                 {
-                    number:2,
+                    number: 2,
                     f_name: "麥香魚",
                     f_customize:
                     {
@@ -164,12 +164,18 @@ class Cart extends React.Component {
             ],
             total: 446,
         }
-    cookies.set(110, JSON.stringify(da), { path: "/" });
+        cookies.set(110, JSON.stringify(da), { path: "/" });
     }
 
     /*delete data one by one*/
     deleteCookieCartData = (event) => {
-        console.log(typeof(event.currentTarget.value));       
+        if (this.state.cookieData.language === '中文') {
+            alert('刪除成功!!');
+        }
+        else {
+            alert('Delete succrssfully!!');
+        }
+        console.log(typeof (event.currentTarget.value));
         console.log("delete one");
         const newvalue = this.state.cart
         newvalue.filter(item => item.number === parseInt(event.currentTarget.value));
@@ -183,8 +189,14 @@ class Cart extends React.Component {
 
     /*delete all data*/
     cleanCookieCartData = () => {
+        if (this.state.cookieData.language === '中文') {
+            alert('清空購物車成功!!');
+        }
+        else {
+            alert('Remove all succrssfully!!');
+        }
         console.log("clean");
- 
+
         this.setState({
             cart: [],
             newPrice: 0
@@ -195,7 +207,7 @@ class Cart extends React.Component {
     setOrderList = () => {
         console.log("set order and jump to pay page");
         const { cookies } = this.props;
-    
+
         var cookieDataTemp = JSON.stringify(cookies.get(`${this.props.user_ID}`));
         var cookieData = JSON.parse(cookieDataTemp);
         console.log(cookieData);
@@ -220,12 +232,18 @@ class Cart extends React.Component {
         // newvalue.find(item => item.f_name === event.currentTarget.value);
         // console.log(newvalue)
     }
-    
+
     Display(data, index) {
         /*delete data one by one*/
         const { cookies } = this.props;
         this.deleteCookieCartData = (event) => {
-            console.log(typeof(event.currentTarget.value));       
+            if (this.state.cookieData.language === '中文') {
+                alert('刪除成功!!');
+            }
+            else {
+                alert('Delete succrssfully!!');
+            }
+            console.log(typeof (event.currentTarget.value));
             console.log("delete one");
             const newvalue = this.state.cart
             const newcart = newvalue.find(item => item.number === parseInt(event.currentTarget.value));
@@ -233,7 +251,7 @@ class Cart extends React.Component {
 
             this.setState({
                 cart: this.state.cart.filter(cart => cart.number !== parseInt(event.currentTarget.value)),
-                newPrice:this.state.newPrice-newcart.totalPrice
+                newPrice: this.state.newPrice - newcart.totalPrice
             })
             //console.log(this.state.newPrice );
         }
@@ -244,12 +262,12 @@ class Cart extends React.Component {
                 return (
                     <tr className='cartItem' id={index}>
                         <tr>
-                            <th >{index+1}</th>
+                            <th >{index + 1}</th>
                             <td width="250" >{data.f_name}</td>
                             <td>$ {data.totalPrice}</td>
                             <Button className='removeX_Cart' variant="outlined" color="secondary" key={data.f_id} value={data.number} onClick={this.deleteCookieCartData} removeitem={this.deleteCookieCartData}>
                                 X
-                            </ Button>   
+                            </ Button>
                         </tr>
                         <tr className='drink' align="center">
                             <td ></td>
@@ -270,21 +288,21 @@ class Cart extends React.Component {
                             <td width="125">-加價購 : {data.a_name}</td>
                             <td width="125"></td>
                         </tr>
-                
+
                     </tr>
-                        
+
                 );
             }
             else {
-                return(
+                return (
                     <tr className='cartItem' id={index}>
                         <tr>
-                            <th >{index+1}</th>
+                            <th >{index + 1}</th>
                             <td width="250" >{data.f_name}</td>
                             <td>$ {data.totalPrice}</td>
                             <Button className='removeX_Cart' variant="outlined" color="secondary" key={data.f_id} value={data.number} onClick={this.deleteCookieCartData} removeitem={this.deleteCookieCartData}>
                                 X
-                            </ Button>   
+                            </ Button>
                         </tr>
                         <tr className='drink' align="center">
                             <td ></td>
@@ -305,143 +323,141 @@ class Cart extends React.Component {
                             <td width="125">-add : {data.a_name}</td>
                             <td width="125"></td>
                         </tr>
-                
+
                     </tr>
                 );
-                
+
             }
-            
+
         }
         else {
             if (this.state.cookieData.language === "中文") {
-                if (data.set === 1)
-                {
+                if (data.set === 1) {
                     return (
-                        <tr className='cartItem' id={index}>                                       
+                        <tr className='cartItem' id={index}>
                             <tr>
-                                <th scope="row"key="{data0}">{index +1}</th>
+                                <th scope="row" key="{data0}">{index + 1}</th>
                                 <td width="250" key="{data1}">{data.f_name}</td>
                                 <td key="{data2}">{data.f_customize.sauce}  {data.f_customize.lettuce}</td>
                                 <td>$ {data.totalPrice}</td>
                                 <Button className='removeX_Cart' variant="outlined" color="secondary" key={data.f_id} value={data.number} onClick={this.deleteCookieCartData} removeitem={this.deleteCookieCartData}>
-                                X
-                                </ Button> 
+                                    X
+                                </ Button>
                             </tr>
                         </tr>
                     );
                 }
                 else {
                     return (
-                
-                        <tr className='cartItem' id={index}>                                       
+
+                        <tr className='cartItem' id={index}>
                             <tr>
-                                <th scope="row"key="{data0}">{index +1}</th>
+                                <th scope="row" key="{data0}">{index + 1}</th>
                                 <td width="250" key="{data1}">{data.f_name}</td>
                                 <td key="{data2}">{data.f_customize.sauce}  {data.f_customize.lettuce}</td>
                                 <td>$ {data.totalPrice}</td>
                                 <Button className='removeX_Cart' variant="outlined" color="secondary" key={data.f_id} value={data.number} onClick={this.deleteCookieCartData} removeitem={this.deleteCookieCartData}>
-                                X
-                                </ Button> 
+                                    X
+                                </ Button>
                             </tr>
                             <tr className='drink' align="center">
                                 <td key="{data0.1}"></td>
-                                <td width="100"key="{data3}"></td>
-                                <td width="125"key="{data4}">-{data.d_name}</td>
-                                <td width="125"key="{data5}">({data.d_customize})</td>
+                                <td width="100" key="{data3}"></td>
+                                <td width="125" key="{data4}">-{data.d_name}</td>
+                                <td width="125" key="{data5}">({data.d_customize})</td>
                             </tr>
                             <tr className='side' align="center">
                                 <td key="{data0.2}"></td>
-                                <td width="100"key="{data6}"></td>
-                                <td width="125"key="{data7}">-{data.s_name}</td>
-                                <td width="125"key="{data8}">({data.s_customize})</td>
+                                <td width="100" key="{data6}"></td>
+                                <td width="125" key="{data7}">-{data.s_name}</td>
+                                <td width="125" key="{data8}">({data.s_customize})</td>
                             </tr>
                             <tr className='add' align="center">
                                 <td key="{data0.3}"></td>
-                                <td width="100"key="{data9}"></td>
-                                <td width="125"key="{data10}">-加價購 : {data.a_name}</td>
-                                <td width="125"key="{data11}"></td>
+                                <td width="100" key="{data9}"></td>
+                                <td width="125" key="{data10}">-加價購 : {data.a_name}</td>
+                                <td width="125" key="{data11}"></td>
                             </tr>
-                    
+
                         </tr>
                     );
                 }
             }
             else {
-                if (data.set === 1)
-                {
+                if (data.set === 1) {
                     return (
-                
-                        <tr className='cartItem' id={index}>                                       
+
+                        <tr className='cartItem' id={index}>
                             <tr>
-                                <th scope="row"key="{data0}">{index +1}</th>
+                                <th scope="row" key="{data0}">{index + 1}</th>
                                 <td width="250" key="{data1}">{data.f_name}</td>
                                 <td key="{data2}">{data.f_customize.sauce}  {data.f_customize.lettuce}</td>
                                 <td>$ {data.totalPrice}</td>
                                 <Button className='removeX_Cart' variant="outlined" color="secondary" key={data.f_id} value={data.f_name} onClick={this.deleteCookieCartData} removeitem={this.deleteCookieCartData}>
-                                X
-                                </ Button> 
+                                    X
+                                </ Button>
                             </tr>
                         </tr>
                     );
                 }
                 else {
                     return (
-                
-                        <tr className='cartItem' id={index}>                                       
+
+                        <tr className='cartItem' id={index}>
                             <tr>
-                                <th scope="row"key="{data0}">{index +1}</th>
+                                <th scope="row" key="{data0}">{index + 1}</th>
                                 <td width="250" key="{data1}">{data.f_name}</td>
                                 <td key="{data2}">{data.f_customize.sauce}  {data.f_customize.lettuce}</td>
                                 <td>$ {data.totalPrice}</td>
                                 <Button className='removeX_Cart' variant="outlined" color="secondary" key={data.f_id} value={data.f_name} onClick={this.deleteCookieCartData} removeitem={this.deleteCookieCartData}>
-                                X
-                                </ Button> 
+                                    X
+                                </ Button>
                             </tr>
                             <tr className='drink' align="center">
                                 <td key="{data0.1}"></td>
-                                <td width="100"key="{data3}"></td>
-                                <td width="125"key="{data4}">-{data.d_name}</td>
-                                <td width="125"key="{data5}">({data.d_customize})</td>
+                                <td width="100" key="{data3}"></td>
+                                <td width="125" key="{data4}">-{data.d_name}</td>
+                                <td width="125" key="{data5}">({data.d_customize})</td>
                             </tr>
                             <tr className='side' align="center">
                                 <td key="{data0.2}"></td>
-                                <td width="100"key="{data6}"></td>
-                                <td width="125"key="{data7}">-{data.s_name}</td>
-                                <td width="125"key="{data8}">({data.s_customize})</td>
+                                <td width="100" key="{data6}"></td>
+                                <td width="125" key="{data7}">-{data.s_name}</td>
+                                <td width="125" key="{data8}">({data.s_customize})</td>
                             </tr>
                             <tr className='add' align="center">
                                 <td key="{data0.3}"></td>
-                                <td width="100"key="{data9}"></td>
-                                <td width="125"key="{data10}">-add : {data.a_name}</td>
-                                <td width="125"key="{data11}"></td>
+                                <td width="100" key="{data9}"></td>
+                                <td width="125" key="{data10}">-add : {data.a_name}</td>
+                                <td width="125" key="{data11}"></td>
                             </tr>
-                    
+
                         </tr>
                     );
                 }
             }
-            
+
         }
     }
 
 
     render() {
         console.log(this.props.user_ID);
-        console.log("yyy",this.state.cart);
-        console.log(this.state.cookieData.language);  
+        console.log("yyy", this.state.cart);
+        console.log(this.state.cookieData.language);
 
         if (this.state.cookieData.language === "中文") {
             return (
                 <div className="cartBody">
                     <div className='top'>
-                    <img alt='mcdonalds logo' className="mcdonalds_img" src={require('../mealSetting/images/mcdonalds_logo.jpg')}/>
+                        <img alt='mcdonalds logo' className="mcdonalds_img" src={require('../mealSetting/images/mcdonalds_logo.jpg')} />
                     </div>
-                    
+
                     <div className="back">
                         <Link to={`/classification/${this.state.categoryPath}`}>
                             <Button onClick={this.setOrderList} variant='outlined' color="primary" >回到菜單</Button>
-                        </Link><br/><br/>
-                        <h3>購物車</h3><br/><br/>
+                        </Link><br /><br />
+                        <h3>購物車</h3><br /><br />
                         {/* {<Button onClick={this.a}>A</Button>} */}
                         <div>
                             <div>
@@ -451,11 +467,11 @@ class Cart extends React.Component {
                             </div>
                         </div>
                         <div className="text-right" align="right">總價 :{this.state.newPrice} 元</div>
-                    <Button className='clean' variant="contained" color="secondary" onClick={this.cleanCookieCartData} >清空購物車</Button><br/><br/>
-                    <Link to="/selectPayMode">
-                        <Button className='pay' variant="contained" color="primary" onClick={this.setOrderList}>確認訂單</Button>{' '}
-                    </Link>
-                    
+                        <Button className='clean' variant="contained" color="secondary" onClick={this.cleanCookieCartData} >清空購物車</Button><br /><br />
+                        <Link to="/selectPayMode">
+                            <Button className='pay' variant="contained" color="primary" onClick={this.setOrderList}>確認訂單</Button>{' '}
+                        </Link>
+
                     </div>
                 </div >
             );
@@ -464,14 +480,14 @@ class Cart extends React.Component {
             return (
                 <div className="cartBody">
                     <div className='top'>
-                    <img alt='mcdonalds logo' className="mcdonalds_img" src={require('../mealSetting/images/mcdonalds_logo.jpg')}/>
+                        <img alt='mcdonalds logo' className="mcdonalds_img" src={require('../mealSetting/images/mcdonalds_logo.jpg')} />
                     </div>
-                    
+
                     <div className="back">
-                    <Link to={`/classification/${this.state.categoryPath}`}>
+                        <Link to={`/classification/${this.state.categoryPath}`}>
                             <Button onClick={this.setOrderList} >Back to menu</Button>
-                        </Link><br/><br/>
-                        <h3>My Order</h3><br/><br/>
+                        </Link><br /><br />
+                        <h3>My Order</h3><br /><br />
 
                         {/* {<Button onClick={this.a}>A</Button>} */}
                         <div>
@@ -482,17 +498,17 @@ class Cart extends React.Component {
                             </div>
                         </div>
                         <div className="text-right" align="right">total :${this.state.newPrice}</div>
-                    <Button className='clean' variant="contained" color="error" onClick={this.cleanCookieCartData} >Remove All</Button><br/><br/>
-                    <Link to="/selectPayMode">
-                        <Button className='pay' variant="contained" color="primary" onClick={this.setOrderList}>Confirm Order</Button>{' '}
-                    </Link>
-                    
+                        <Button className='clean' variant="contained" color="error" onClick={this.cleanCookieCartData} >Remove All</Button><br /><br />
+                        <Link to="/selectPayMode">
+                            <Button className='pay' variant="contained" color="primary" onClick={this.setOrderList}>Confirm Order</Button>{' '}
+                        </Link>
+
                     </div>
                 </div >
             );
         }
     }
-    
+
 }
 
 

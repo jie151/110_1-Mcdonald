@@ -153,6 +153,7 @@ class SetMealCN extends React.Component {
     };
 
     handleAddtoCart = event => {
+        alert('成功加入購物車!!');
         const { cookies } = this.props;
         var data = undefined;
         event.preventDefault();
