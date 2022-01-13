@@ -83,14 +83,16 @@ h2.extra {
 }
 
 .deteail_text{
-    padding-top: 18px;
+    padding-top: 40px;
+    margin-left: 100px;
 }
 .fleft {
-	float: left;
+	float:left;
+    margin-right: 200px;
 }
 
 	img.fleft {
-		margin: 5px 45px 45px 0px;
+		margin-right: 200px;
 	}
 .select{
     margin: 0 0 25px 0;
@@ -109,4 +111,19 @@ h2.extra {
 }
 .td7{
     width: 300px;
+}
+.td2{
+    width: 400px;
+}
+.col-1{
+    margin-right: 225px;
+}
+.picturetable1{
+    margin-left: 400px;
+}
+.picturetable2{
+    margin-bottom: 50px;
+}
+.detail_table{
+    margin-top: 40px;
 }

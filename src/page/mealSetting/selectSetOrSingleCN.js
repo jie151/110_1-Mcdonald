@@ -62,33 +62,41 @@ class SelectSetOrSingleCN extends React.Component {
                     <div className="Ipicture">
                     </div>
                     <div className="inner">
-                        <div classsName="wrapper">
-                            <h2 classsName="extra">About {this.state.food['f_name']}</h2>
-                            <img src={this.state.food.picture} classsName="fleft" alt="" />
-                            <div className="deteail_text">
-                                <div className='foodname'>
-                                    <p>{this.state.food['f_name']}&emsp;&emsp;&emsp;&emsp;NT.{this.state.food['price']} 起</p>
-                                </div>
-                                <br />
-                                <Button
-                                    type="submit"
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={this.handleSingleSubmit}
-                                >
-                                    單點
-                                </Button>
-                                <Button
-                                    type="submit"
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={this.handleMealSubmit}
-                                >
-                                    套餐
-                                </Button>
 
-                                <p>.</p>
-                            </div>
+                        <div classsName="wrapper">
+                            <table className='picturetable2'>
+                                <tr><td >
+                                    <h2 classsName="extra">About {this.state.food['f_name']}</h2>
+                                    <img src={this.state.food.picture} classsName="fleft" alt="" />
+                                </td>
+                                    <td className='picturetable1'>
+                                        <div className="deteail_text">
+                                            <div className='foodname'>
+                                                <p>{this.state.food['f_name']}&emsp;&emsp;&emsp;&emsp;NT.{this.state.food['price']} 起</p>
+                                            </div>
+                                            <br />
+                                            <Button
+                                                type="submit"
+                                                variant="contained"
+                                                color="primary"
+                                                onClick={this.handleSingleSubmit}
+                                            >
+                                                單點
+                                            </Button>
+                                            <Button
+                                                type="submit"
+                                                variant="contained"
+                                                color="primary"
+                                                onClick={this.handleMealSubmit}
+                                            >
+                                                套餐
+                                            </Button>
+
+                                            <p>.</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
                             <h2 classsName="link">詳細資訊</h2>
                             <div classsName="clear"></div>
                             <div>< SetMealCN message={this.state.singleormeal} food={this.state.food} category_id={this.props.category_id} user_ID={this.props.user_ID} /></div>

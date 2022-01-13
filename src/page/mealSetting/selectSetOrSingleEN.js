@@ -64,32 +64,39 @@ class SelectSetOrSingleEN extends React.Component {
                     </div>
                     <div classsName="inner">
                         <div classsName="wrapper">
-                            <h2 classsName="extra">About &emsp;{this.state.food['f_name_EN']}</h2>
-                            <img src={this.state.food.picture} classsName="fleft" alt="" />
-                            <div className="deteail_text">
-                                <div className='foodname'>
-                                    <p>{this.state.food['f_name_EN']}&emsp;&emsp;&emsp;&emsp;NT.{this.state.food['price']} UP</p>
-                                </div>
-                                <br />
-                                <Button
-                                    type="submit"
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={this.handleSingleSubmit}
-                                >
-                                    SINGLE
-                                </Button>
-                                <Button
-                                    type="submit"
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={this.handleMealSubmit}
-                                >
-                                    MEAL
-                                </Button>
+                            <table className='picturetable2'>
+                                <tr><td >
+                                    <h2 classsName="extra">About &emsp;{this.state.food['f_name_EN']}</h2>
+                                    <img src={this.state.food.picture} classsName="fleft" alt="" />
+                                </td>
+                                    <td className='picturetable1'>
+                                        <div className="deteail_text">
+                                            <div className='foodname'>
+                                                <p>{this.state.food['f_name_EN']}&emsp;&emsp;&emsp;&emsp;NT.{this.state.food['price']} UP</p>
+                                            </div>
+                                            <br />
+                                            <Button
+                                                type="submit"
+                                                variant="contained"
+                                                color="primary"
+                                                onClick={this.handleSingleSubmit}
+                                            >
+                                                SINGLE
+                                            </Button>
+                                            <Button
+                                                type="submit"
+                                                variant="contained"
+                                                color="primary"
+                                                onClick={this.handleMealSubmit}
+                                            >
+                                                MEAL
+                                            </Button>
 
-                                <p>.</p>
-                            </div>
+                                            <p>.</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
                             <h2 classsName="link">more about us</h2>
                             <div classsName="clear"></div>
                             <div>< SetMealEN message={this.state.singleormeal} category_id={this.props.category_id} food={this.state.food} user_ID={this.props.user_ID} /></div>
