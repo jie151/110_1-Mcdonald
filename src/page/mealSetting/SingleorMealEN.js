@@ -354,7 +354,7 @@ class SetMealEN extends React.Component {
             totalprice = this.state.drinkPrice + this.state.sidePrice + this.state.addPrice + this.props.food.price + 115;
             return (
                 <div className="wrapper">
-                    <table>
+                    <table className='detail_table'>
                         <tr>
                             <td className='td1'>
 
@@ -362,9 +362,10 @@ class SetMealEN extends React.Component {
                                     <h2 className="extra">Our Customize</h2>
                                     <dl className="list-2">
                                         <dt>Main Meal Customize</dt>
-                                        <dd>.</dd>
+
 
                                     </dl>
+                                    <br></br>
                                     <Button className='select_button' onClick={this.handleSauceCustomizeOpen}>
                                         Sauce&emsp;&emsp;
                                     </Button>
@@ -414,168 +415,172 @@ class SetMealEN extends React.Component {
                                         </Select>
                                     </FormControl>
                                 </article>
+                                <div>
 
-                                <article className="col-1">
+                                    <article className="col-1">
+                                        <dl className="list-2">
+                                            <dd>.</dd>
+                                            <dt>Drink Customize</dt>
 
 
-
-
-                                    <div className="clear"></div>
-                                </article>
-                                <article className="col-1">
-                                    <dl className="list-2">
-                                        <dd>.</dd>
-                                        <dt>Drink Customize</dt>
-                                        <dd>.</dd>
-
-                                    </dl>
-                                    <Button className='select_button' onClick={this.handleDrinkOpen}>
-                                        Select Drink&emsp;&emsp;
-                                    </Button>
-                                    <FormControl className='select_formControl'>
-                                        <InputLabel id="demo-controlled-open-select-label"></InputLabel>
-                                        <Select
-                                            labelId="demo-controlled-open-select-label"
-                                            id="demo-controlled-open-select"
-                                            open={this.state.drinkopen}
-                                            onClose={this.handleDrinkClose}
-                                            onOpen={this.handleDrinkOpen}
-                                            value={this.state.drink}
-                                        >
-                                            <div className="links">
-                                                <div className="storeChange">
-                                                    {this.state.drinkList.map((item, i) => (
-                                                        <MenuItem onClick={this.handleDrinkChange} value={i} >
-                                                            + ${item.price - 38}&emsp;{item.f_name_EN}
-                                                        </MenuItem>
-                                                    ))}
+                                        </dl>
+                                        <br></br>
+                                        <Button className='select_button' onClick={this.handleDrinkOpen}>
+                                            Select Drink&emsp;&emsp;
+                                        </Button>
+                                        <FormControl className='select_formControl'>
+                                            <InputLabel id="demo-controlled-open-select-label"></InputLabel>
+                                            <Select
+                                                labelId="demo-controlled-open-select-label"
+                                                id="demo-controlled-open-select"
+                                                open={this.state.drinkopen}
+                                                onClose={this.handleDrinkClose}
+                                                onOpen={this.handleDrinkOpen}
+                                                value={this.state.drink}
+                                            >
+                                                <div className="links">
+                                                    <div className="storeChange">
+                                                        {this.state.drinkList.map((item, i) => (
+                                                            <MenuItem onClick={this.handleDrinkChange} value={i} >
+                                                                + ${item.price - 38}&emsp;{item.f_name_EN}
+                                                            </MenuItem>
+                                                        ))}
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </Select>
-                                    </FormControl>
-                                    <Button className='select_button' onClick={this.handledrinkCustomizeOpen}>
-                                        &emsp;&emsp;Select Drink Customize&emsp;
-                                    </Button>
-                                    <FormControl className='select_formControl'>
-                                        <InputLabel id="demo-controlled-open-select-label"></InputLabel>
-                                        <Select
-                                            labelId="demo-controlled-open-select-label"
-                                            id="demo-controlled-open-select"
-                                            open={this.state.drinkCustomizeopen}
-                                            onClose={this.handledrinkCustomizeClose}
-                                            onOpen={this.handledrinkCustomizeOpen}
-                                            value={this.state.drinkCustomize}
+                                            </Select>
+                                        </FormControl>
+                                        <Button className='select_button' onClick={this.handledrinkCustomizeOpen}>
+                                            &emsp;&emsp;Select Drink Customize&emsp;
+                                        </Button>
+                                        <FormControl className='select_formControl'>
+                                            <InputLabel id="demo-controlled-open-select-label"></InputLabel>
+                                            <Select
+                                                labelId="demo-controlled-open-select-label"
+                                                id="demo-controlled-open-select"
+                                                open={this.state.drinkCustomizeopen}
+                                                onClose={this.handledrinkCustomizeClose}
+                                                onOpen={this.handledrinkCustomizeOpen}
+                                                value={this.state.drinkCustomize}
 
-                                        >
-                                            <div className="links">
-                                                <div className="storeChange">
-                                                    {this.state.drinkCustomizeList.map((item) => (
-                                                        <MenuItem onClick={this.handledrinkCustomizeChange} value={item.option_id} >
-                                                            {item.option_EN}&emsp;
-                                                        </MenuItem>
-                                                    ))}
+                                            >
+                                                <div className="links">
+                                                    <div className="storeChange">
+                                                        {this.state.drinkCustomizeList.map((item) => (
+                                                            <MenuItem onClick={this.handledrinkCustomizeChange} value={item.option_id} >
+                                                                {item.option_EN}&emsp;
+                                                            </MenuItem>
+                                                        ))}
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </Select>
-                                    </FormControl>
-                                    <dl className="list-2">
-                                        <dd>.</dd>
-                                        <dt>Side Customize</dt>
-                                        <dd>.</dd>
+                                            </Select>
+                                        </FormControl>
+                                    </article>
+                                </div>
+                                <div>
+                                    <article class="col-1">
+                                        <dl className="list-2">
+                                            <dd>.</dd>
+                                            <dt>Side Customize</dt>
 
-                                    </dl>
 
-                                    <div className="clear"></div>
-                                </article>
-                                <article className="col-2">
+                                        </dl>
+                                        <br></br>
 
-                                    <Button className='select_button' onClick={this.handleSideOpen}>
-                                        Select Side&emsp;&emsp;
-                                    </Button>
-                                    <FormControl className='select_formControl'>
-                                        <InputLabel id="demo-controlled-open-select-label"></InputLabel>
-                                        <Select
-                                            labelId="demo-controlled-open-select-label"
-                                            id="demo-controlled-open-select"
-                                            open={this.state.sideopen}
-                                            onClose={this.handleSideClose}
-                                            onOpen={this.handleSideOpen}
-                                            value={this.state.side}
+                                        <div className="clear"></div>
+                                    </article>
+                                    <article className="col-2">
 
-                                        >
-                                            <div className="links">
-                                                <div className="storeChange">
-                                                    {this.state.sideList.map((item) => (
-                                                        <MenuItem onClick={this.handleSideChange} value={item.s_id} >
-                                                            ${item.price}&emsp;{item.s_name_EN}
-                                                        </MenuItem>
-                                                    ))}
+                                        <Button className='select_button' onClick={this.handleSideOpen}>
+                                            Select Side&emsp;&emsp;
+                                        </Button>
+                                        <FormControl className='select_formControl'>
+                                            <InputLabel id="demo-controlled-open-select-label"></InputLabel>
+                                            <Select
+                                                labelId="demo-controlled-open-select-label"
+                                                id="demo-controlled-open-select"
+                                                open={this.state.sideopen}
+                                                onClose={this.handleSideClose}
+                                                onOpen={this.handleSideOpen}
+                                                value={this.state.side}
+
+                                            >
+                                                <div className="links">
+                                                    <div className="storeChange">
+                                                        {this.state.sideList.map((item) => (
+                                                            <MenuItem onClick={this.handleSideChange} value={item.s_id} >
+                                                                ${item.price}&emsp;{item.s_name_EN}
+                                                            </MenuItem>
+                                                        ))}
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </Select>
-                                    </FormControl>
-                                    <Button className='select_button' value={totalprice} onClick={this.handleSideCustomizeOpen}>
-                                        Select Side Customize&emsp;&emsp;
-                                    </Button>
-                                    <FormControl className='select_formControl'>
-                                        <InputLabel id="demo-controlled-open-select-label"></InputLabel>
-                                        <Select
-                                            labelId="demo-controlled-open-select-label"
-                                            id="demo-controlled-open-select"
-                                            open={this.state.sideCustomizeopen}
-                                            onClose={this.handleSideCustomizeClose}
-                                            onOpen={this.handleSideCustomizeOpen}
-                                            value={this.state.sideCustomize}
+                                            </Select>
+                                        </FormControl>
+                                        <Button className='select_button' value={totalprice} onClick={this.handleSideCustomizeOpen}>
+                                            Select Side Customize&emsp;&emsp;
+                                        </Button>
+                                        <FormControl className='select_formControl'>
+                                            <InputLabel id="demo-controlled-open-select-label"></InputLabel>
+                                            <Select
+                                                labelId="demo-controlled-open-select-label"
+                                                id="demo-controlled-open-select"
+                                                open={this.state.sideCustomizeopen}
+                                                onClose={this.handleSideCustomizeClose}
+                                                onOpen={this.handleSideCustomizeOpen}
+                                                value={this.state.sideCustomize}
 
-                                        >
-                                            <div className="links">
-                                                <div className="storeChange">
-                                                    {this.state.sideCustomizeList.map((item) => (
-                                                        <MenuItem onClick={this.handleSideCustomizeChange} value={item.option_id} >
-                                                            {item.option_EN}&emsp;
-                                                        </MenuItem>
-                                                    ))}
+                                            >
+                                                <div className="links">
+                                                    <div className="storeChange">
+                                                        {this.state.sideCustomizeList.map((item) => (
+                                                            <MenuItem onClick={this.handleSideCustomizeChange} value={item.option_id} >
+                                                                {item.option_EN}&emsp;
+                                                            </MenuItem>
+                                                        ))}
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </Select>
-                                    </FormControl>
-                                    <br /><br /><div></div>
-                                </article>
-                                <article className="col-2">
-                                    <dl className="list-2">
-                                        <dd>.</dd>
-                                        <dt>Select discount product</dt>
-                                        <dd>.</dd>
+                                            </Select>
+                                        </FormControl>
+                                    </article>
+                                </div>
+                                <br /><br /><div></div>
+
+                                <div>
+                                    <article className="col-1">
+                                        <dl className="list-2">
+                                            <dd>.</dd>
+                                            <dt>Select discount product</dt>
 
 
-                                    </dl>
 
-                                    <Button className='select_button' onClick={this.handleAddOpen}>
-                                        Add discount product&emsp;&emsp;
-                                    </Button>
-                                    <FormControl className='select_formControl'>
-                                        <InputLabel id="demo-controlled-open-select-label"></InputLabel>
-                                        <Select
-                                            labelId="demo-controlled-open-select-label"
-                                            id="demo-controlled-open-select"
-                                            open={this.state.addopen}
-                                            onClose={this.handleAddClose}
-                                            onOpen={this.handleAddOpen}
-                                            value={this.state.add}
+                                        </dl>
+                                        <br></br>
+                                        <Button className='select_button' onClick={this.handleAddOpen}>
+                                            Add discount product&emsp;&emsp;
+                                        </Button>
+                                        <FormControl className='select_formControl'>
+                                            <InputLabel id="demo-controlled-open-select-label"></InputLabel>
+                                            <Select
+                                                labelId="demo-controlled-open-select-label"
+                                                id="demo-controlled-open-select"
+                                                open={this.state.addopen}
+                                                onClose={this.handleAddClose}
+                                                onOpen={this.handleAddOpen}
+                                                value={this.state.add}
 
-                                        >
-                                            <div className="links">
-                                                <div className="storeChange">
-                                                    {this.state.addList.map((item) => (
-                                                        <MenuItem onClick={this.handleAddChange} value={item.a_id} >
-                                                            ${item.price}&emsp;{item.a_name_EN}
-                                                        </MenuItem>
-                                                    ))}
+                                            >
+                                                <div className="links">
+                                                    <div className="storeChange">
+                                                        {this.state.addList.map((item) => (
+                                                            <MenuItem onClick={this.handleAddChange} value={item.a_id} >
+                                                                ${item.price}&emsp;{item.a_name_EN}
+                                                            </MenuItem>
+                                                        ))}
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </Select>
-                                    </FormControl>
-                                </article>
+                                            </Select>
+                                        </FormControl>
+                                    </article>
+                                </div>
                             </td>
                             <td className="td2">
                                 <h2 className="extra">Your Order &emsp;&emsp;&emsp;&emsp;&emsp;</h2>
@@ -603,8 +608,8 @@ class SetMealEN extends React.Component {
             totalprice = this.props.food.price;
             return (
                 <div className="wrapper">
-                    <table><tr><td>
-                        <article className="td3" >
+                    <table className='detail_table'><tr><td>
+                        <article className="col-1" >
                             <h2 className="extra">Our Customize</h2>
                             <dl className="list-2">
 
@@ -661,8 +666,8 @@ class SetMealEN extends React.Component {
                                     </div>
                                 </Select>
                             </FormControl>
-                        </article>
-                    </td>
+                        </article >
+                    </td >
                         <td>
 
 
@@ -681,11 +686,11 @@ class SetMealEN extends React.Component {
                                 </Button>
                             </article>
                         </td>
-                    </tr>
-                    </table>
+                    </tr >
+                    </table >
 
 
-                </div>
+                </div >
 
             )
         }
