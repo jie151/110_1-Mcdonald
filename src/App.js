@@ -71,6 +71,7 @@ function App() {
     console.log("app.js => category_path", newValue);
   }
   //<Route path="/cart" exact element= {<Cart user_ID={CookieID} />}/>
+  //MCD home page
   return (
     <div className="App">
       
